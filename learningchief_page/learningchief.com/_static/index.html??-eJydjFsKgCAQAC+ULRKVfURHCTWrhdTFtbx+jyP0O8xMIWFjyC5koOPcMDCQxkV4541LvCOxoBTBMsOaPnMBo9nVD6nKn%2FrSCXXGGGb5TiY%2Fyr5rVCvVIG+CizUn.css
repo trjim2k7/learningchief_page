@@ -1,0 +1,1900 @@
+/**
+ * Base styles for Paid Memberships Pro.
+ *
+ * These styles are core to the plugin and must be loaded for your site to be usable.
+ */
+
+/**
+ * Root variables
+ */
+:root {
+	--pmpro--base--border-radius: 8px;
+	--pmpro--base--spacing--small: 12px;
+	--pmpro--base--spacing--medium: 18px;
+	--pmpro--base--spacing--large: 36px;
+	--pmpro--color--accent: #0c3d54;
+	--pmpro--color--base: #ffffff;
+	--pmpro--color--base-2: #ededed;
+	--pmpro--color--contrast: #222222;
+	--pmpro--color--border: #777777;
+	--pmpro--color--info-background: #d9edf7;
+	--pmpro--color--info-border: #bce8f1;
+	--pmpro--color--info-text: #31708f;
+	--pmpro--color--info-link: #245269;
+	--pmpro--color--success-background: #d4edda;
+	--pmpro--color--success-border: #c3e6cb;
+	--pmpro--color--success-text: #0F441C;
+	--pmpro--color--success-link: #2b542c;
+	--pmpro--color--error-background: #f8d7da;
+	--pmpro--color--error-border: #f5c6cb;
+	--pmpro--color--error-text: #721c24;
+	--pmpro--color--error-link: #843534;
+	--pmpro--color--alert-background: #fff8e0;
+	--pmpro--color--alert-border: #ffeeba;
+	--pmpro--color--alert-text: #6C5101;
+	--pmpro--color--alert-link: #66512c;
+	--pmpro--color--alert2-background: #ffecd9;
+    --pmpro--color--alert2-border: #ffddb1;
+    --pmpro--color--alert2-text: #995d1d;
+    --pmpro--color--alert2-link: #a65e3a;
+}
+
+/**
+ * Contextual Messages
+ */
+.pmpro_message {
+	background-color: var(--pmpro--color--info-background);
+	border: 1px solid var(--pmpro--color--info-border);
+	border-radius: var(--pmpro--base--border-radius);
+	color: var(--pmpro--color--info-text);
+	font-weight: 400;
+	margin: var(--pmpro--base--spacing--medium) 0;
+	padding: var(--pmpro--base--spacing--small) var(--pmpro--base--spacing--medium);
+	text-align: left;
+}
+
+.pmpro_message.pmpro_success {
+	background-color: var(--pmpro--color--success-background);
+	border-color: var(--pmpro--color--success-border);
+	color: var(--pmpro--color--success-text);
+}
+
+.pmpro_message.pmpro_error {
+	background-color: var(--pmpro--color--error-background);
+	border-color: var(--pmpro--color--error-border);
+	color: var(--pmpro--color--error-text);
+}
+
+.pmpro_message.pmpro_alert {
+	background-color: var(--pmpro--color--alert-background);
+	border-color: var(--pmpro--color--alert-border);
+	color: var(--pmpro--color--alert-text);
+}
+
+.pmpro_message a {
+	color: var(--pmpro--color--info-link);
+	text-decoration: underline;
+}
+
+.pmpro_success a {
+	color: var(--pmpro--color--success-link);
+}
+
+.pmpro_error a {
+	color: var(--pmpro--color--error-link);
+}
+
+.pmpro_alert a {
+	color: var(--pmpro--color--alert-link);
+}
+
+.pmpro_message p {
+	margin: 0 0 var(--pmpro--base--spacing--small);
+	padding: 0;
+}
+
+.pmpro_message p:last-of-type {
+	margin-bottom: 0;
+}
+
+/**
+ * Form Elements
+ */
+.pmpro_captcha {
+	margin: var(--pmpro--base--spacing--large) 0;
+}
+
+.pmpro_captcha div {
+	clear: none;
+	margin: 0;
+}
+
+.pmpro_form_label-inline {
+	display: inline-block;
+}
+
+.pmpro {
+	.pmpro_form_input-text.pmpro_form_input-error,
+	.pmpro_form_input-email.pmpro_form_input-error,
+	.pmpro_form_input-url.pmpro_form_input-error,
+	.pmpro_form_input-password.pmpro_form_input-error,
+	.pmpro_form_input-search.pmpro_form_input-error,
+	.pmpro_form_input-select.pmpro_form_input-error,
+	.pmpro_form_input-checkbox.pmpro_form_input-error,
+	.pmpro_form_input-radio.pmpro_form_input-error,
+	.pmpro_form_input-multiselect.pmpro_form_input-error,
+	.pmpro_form_input-number.pmpro_form_input-error,
+	.pmpro_form_input-file.pmpro_form_input-error,
+	.pmpro_form_input-date.pmpro_form_input-error,
+	.pmpro_form_input-textarea.pmpro_form_input-error {
+		border-color: var(--pmpro--color--error-border);
+		box-shadow: 0 0 0 0.2rem #f8d7da;
+	}
+}
+
+/* Checkbox-specific field type */
+.pmpro_form_field-checkbox .pmpro_form_label {
+	cursor: pointer;
+	display: inline;
+	width: auto;
+}
+
+.pmpro_form_field-checkbox input[type="checkbox"] {
+	height: auto;
+	opacity: 1;
+	width: auto;
+}
+
+.pmpro_form_field-checkbox-grouped ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pmpro_form_field-checkbox-grouped li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Radio-specific field type */
+.pmpro_form_field-radio-item {
+	margin-bottom: 0;
+}
+
+.pmpro_form_field-radio-item .pmpro_form_label {
+	cursor: pointer;
+	display: inline-block;
+	width: auto;
+}
+
+/* Date-specific field type */
+.pmpro_form_field-date select {
+	max-width: unset;
+	width: unset;
+}
+
+.pmpro_form_field-date input[type="text"] {
+	margin-left: var(--pmpro--base--spacing--small);
+	max-width: unset;
+	width: unset;
+}
+
+/* File-specific field type */
+.pmpro_form_field-file button {
+	margin-right: var(--pmpro--base--spacing--small);
+}
+
+.pmpro_form_field-file-preview {
+	align-items: center;
+	display: flex;
+	height: 100px;
+	justify-content: center;
+	overflow: hidden;
+	width: 100px;
+}
+
+.pmpro_form_field-file-preview img {
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+/* Checkout and Billing forms */
+#pmpro_payment_information_fields .pmpro_form_fields label {
+	display: block;
+	float: none;
+	max-width: initial;
+	min-width: initial;
+	text-align: left;
+	width: auto;
+}
+
+button[type="button"]#other_discount_code_toggle,
+button[type="button"]#other_discount_code_toggle:hover,
+button[type="button"]#other_discount_code_toggle:focus {
+	background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+}
+
+#pmpro_tos_fields input[type="checkbox"]#tos {
+	width: auto;
+}
+
+/* PayPal gateway Membership Checkout specific styles. */
+#pmpro_payment_method span.gateway_paypalexpress {
+	margin-left: var(--pmpro--base--spacing--large);
+}
+
+[id^="pmpro_paypal"] .pmpro_btn-submit-checkout-paypal-image {
+	background-image: url(../wp-content/plugins/paid-memberships-pro/images/paypal-color.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: inline-block;
+	height: 30px;
+	width: 100px;
+}
+
+/* Stripe gateway Membership Checkout specific styles. */
+.pmpro_checkout_gateway-stripe form.pmpro_form #pmpro_payment_information_fields .pmpro_payment-request-button h3,
+.pmpro_billing_gateway-stripe form.pmpro_form #pmpro_payment_information_fields .pmpro_payment-request-button h3 {
+	margin: var(--pmpro--base--spacing--medium) 0 var(--pmpro--base--spacing--small);
+	padding: 0;
+}
+
+.pmpro_checkout_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#AccountNumber,
+.pmpro_checkout_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#Expiry,
+.pmpro_checkout_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#CVV,
+.pmpro_billing_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#AccountNumber,
+.pmpro_billing_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#Expiry,
+.pmpro_billing_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#CVV {
+	border: 1px solid var(--pmpro--color--border);
+	padding: var(--pmpro--base--spacing--small);
+}
+
+/* Membership Order specific styles. */
+.pmpro_invoice_details .pmpro_invoice-billing-address {
+	display: flex;
+	flex-direction: column;
+}
+
+.pmpro_price_part_span {
+	display: flex;
+	font-weight: normal;
+	justify-content: space-between;
+}
+
+.pmpro_price_part-total {
+	font-weight: 700;
+}
+
+/**
+ * Lists
+ */
+.pmpro_list {
+	#pmpro_order_single-meta-bill_to {
+		word-break: break-all;
+	}
+}
+
+.pmpro_list.pmpro_list-plain,
+.pmpro_list.pmpro_list-plain .pmpro_list_item {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pmpro_list.pmpro_list-bulleted {
+	list-style-type: disc;
+	margin: 0;
+	padding: 0 0 0 var(--pmpro--base--spacing--medium);
+}
+
+.pmpro_list.pmpro_list-bulleted .pmpro_list_item {
+	margin: 0;
+	padding: 0;
+}
+
+.pmpro_list .pmpro_list_item:not(:last-child) {
+	margin-bottom: var(--pmpro--base--spacing--small);
+}
+
+/**
+ * Login, Lost Password, Reset Password frontend pages.
+ *
+ * This section based on similar rules in wp-admin/css/forms.css
+ */
+#pass-strength-result {
+	border: 1px solid var(--pmpro--color--border);
+	border-radius: var(--pmpro--base--border-radius);
+	color: inherit;
+	font-size: 16px;
+	margin: 0;
+	padding: calc( var(--pmpro--base--spacing--small) / 3 ) var(--pmpro--base--spacing--small);
+	text-align: center;
+	width: 100%;
+	box-sizing: border-box;
+	opacity: 0;
+}
+
+#pass-strength-result.short {
+	background-color: var(--pmpro--color--error-background);
+	border-color: var(--pmpro--color--error-border);
+	color: var(--pmpro--color--error-text);
+	opacity: 1;
+}
+
+#pass-strength-result.bad {
+	background-color: var(--pmpro--color--alert2-background);
+	border-color: var(--pmpro--color--alert2-border);
+	color: var(--pmpro--color--alert2-text);
+	opacity: 1;
+}
+
+#pass-strength-result.good {
+	background-color: var(--pmpro--color--alert-background);
+	border-color: var(--pmpro--color--alert-border);
+	color: var(--pmpro--color--alert-text);
+	opacity: 1;
+}
+
+#pass-strength-result.strong {
+	background-color: var(--pmpro--color--success-background);
+	border-color: var(--pmpro--color--success-border);
+	color: var(--pmpro--color--success-text);
+	opacity: 1;
+}
+
+.pass1.short, .pass1-text.short {
+	border-color: var(--pmpro--color--error-border);
+}
+
+.pass1.bad, .pass1-text.bad {
+	border-color: var(--pmpro--color--alert2-border);
+}
+
+.pass1.good, .pass1-text.good {
+	border-color: var(--pmpro--color--alert-border);
+}
+
+.pass1.strong, .pass1-text.strong {
+	border-color: var(--pmpro--color--success-border);
+}
+
+.pw-weak {
+	display: none;
+}
+
+.indicator-hint {
+	padding-top: 8px;
+}
+
+.wp-pwd [type="text"],
+.wp-pwd [type="password"] {
+	margin-bottom: 0;
+	/* Same height as the buttons */
+	min-height: 30px;
+}
+
+/* Special Fields */
+.pmpro_form_field-password-toggle button,
+.pmpro_form_field-password-toggle button:hover,
+.pmpro_form_field-password-toggle button:focus,
+.pmpro_form_field-password-toggle button:active {
+	align-items: center;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	box-sizing: border-box;
+	color: var(--pmpro--color--contrast);
+	display: flex;
+	flex-direction: row;
+	gap: calc( var(--pmpro--base--spacing--small) / 2 );
+	line-height: 1;
+	margin: 0;
+	min-height: 1px;
+	padding: 0;
+}
+
+.pmpro_form_field-password-toggle button:focus,
+.pmpro_form_field-password-toggle button:active {
+	color: var(--pmpro--color--contrast);
+}
+
+/* Hide the Edge "reveal password" native button */
+.wp-pwd input::-ms-reveal {
+	display: none;
+}
+
+.pass1-text,
+.show-password #pass1 {
+	display: none;
+}
+
+.pass1-text::-ms-clear {
+	display: none;
+}
+
+.show-password #pass1-text {
+	display: inline-block;
+}
+
+/**
+ * Tables
+ */
+.pmpro_table {
+	border-collapse: collapse;
+	margin: 0;
+	width: 100%;
+}
+
+.pmpro_table-fixed {
+	table-layout: fixed;
+}
+
+/**
+ * Tags
+ */
+.pmpro_tag {
+	border-radius: var(--pmpro--base--border-radius);
+	border: 1px solid var(--pmpro--color--border);
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	padding: calc( var(--pmpro--base--spacing--small) / 3 ) var(--pmpro--base--spacing--small);
+	text-align: center;
+}
+
+.pmpro_tag-success {
+	background-color: var(--pmpro--color--success-background);
+	border-color: var(--pmpro--color--success-border);
+	color: var(--pmpro--color--success-text);
+}
+
+.pmpro_tag-error {
+	background-color: var(--pmpro--color--error-background);
+	border-color: var(--pmpro--color--error-border);
+	color: var(--pmpro--color--error-text);
+}
+
+.pmpro_tag-alert {
+	background-color: var(--pmpro--color--alert-background);
+	border-color: var(--pmpro--color--alert-border);
+	color: var(--pmpro--color--alert-text);
+}
+
+/**
+ * Admin Toolbar View As Feature
+ */
+#wpadminbar #wp-admin-bar-pmpro-admin-membership-access {
+	background-color: #1d2327;
+}
+
+#wpadminbar .pmpro_admin-view {
+	display: inline-block;
+	padding: 0 5px;
+}
+
+#wpadminbar .menupop .ab-item:has(.pmpro_admin-view) + .ab-sub-wrapper {
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	padding: 10px;
+}
+
+#wpadminbar .menupop .ab-item:has(.pmpro_admin-view) + .ab-sub-wrapper ul li .ab-item {
+	height: auto;
+}
+
+#wpadminbar .menupop .ab-item:has(.pmpro_admin-view) + .ab-sub-wrapper p {
+	color: #fff;
+	line-height: 1.5;
+	margin-bottom: 5px;
+	white-space: normal;
+}
+
+#wpadminbar .menupop .ab-item:has(.pmpro_admin-view) + .ab-sub-wrapper select {
+	background-color: #fff;
+	border-radius: 6px;
+	line-height: 1.5;
+	padding: 5px 8px;
+}
+
+#wpadminbar .ab-item:has(.pmpro_admin-view-yes),
+#wpadminbar .ab-top-menu > li.hover > .ab-item:has(.pmpro_admin-view-yes),
+#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item:has(.pmpro_admin-view-yes),
+#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:has(.pmpro_admin-view-yes):focus,
+#wpadminbar .menupop .ab-item:has(.pmpro_admin-view-yes) + .ab-sub-wrapper {
+	background-color: #0F441C;
+	color: #fff;
+}
+
+#wpadminbar .ab-item:has(.pmpro_admin-view-no),
+#wpadminbar .ab-top-menu > li.hover > .ab-item:has(.pmpro_admin-view-no),
+#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item:has(.pmpro_admin-view-no),
+#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:has(.pmpro_admin-view-no):focus,
+#wpadminbar .menupop .ab-item:has(.pmpro_admin-view-no) + .ab-sub-wrapper {
+	background-color: #721c24;
+	color: #fff;
+}
+
+#wpadminbar .pmpro_admin-view .ab-icon {
+	margin-right: 3px;
+}
+
+#wpadminbar .pmpro_admin-view .ab-icon:before,
+#wpadminbar li:hover .pmpro_admin-view .ab-icon:before,
+#wpadminbar li.hover .pmpro_admin-view .ab-icon:before {
+	color: #fff;
+}
+
+#wpadminbar .pmpro_admin-view-current .ab-icon:before,
+#wpadminbar li:hover .pmpro_admin-view-current .ab-icon:before,
+#wpadminbar li.hover .pmpro_admin-view-current .ab-icon:before {
+	color: inherit;
+}
+
+/**
+ * Frontend page navigation
+ */
+.pmpro_actions_nav:not(#pmpro_login .pmpro_actions_nav) {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.pmpro_actions_nav-left {
+	flex: 1;
+	order: 1;
+	text-align: left;
+}
+
+.pmpro_actions_nav-right {
+	flex: 1;
+	order: 2;
+	text-align: right;
+}
+
+/**
+ * Frontend data filters
+ */
+.pmpro_data_filters {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: var(--pmpro--base--spacing--small);
+	margin-bottom: var(--pmpro--base--spacing--medium);
+}
+
+.pmpro_data_count {
+	margin-bottom: var(--pmpro--base--spacing--medium);
+	text-align: right;
+}
+
+/**
+ * Misc
+ */
+.pmpro_pad-s {
+	padding: var(--pmpro--base--spacing--small);
+}
+
+.pmpro_pad-m {
+	padding: var(--pmpro--base--spacing--large);
+}
+
+.pmpro_pad-l {
+	padding: var(--pmpro--base--spacing--large);
+}
+
+.pmpro_spacer {
+	margin: var(--pmpro--base--spacing--medium) 0;
+	min-height: 1px;
+}
+
+.pmpro_form .pmpro_spacer {
+	margin-top: var(--pmpro--base--spacing--large);
+}
+
+.pmpro_clickable {
+	cursor: pointer;
+}
+
+.pmpro_asterisk abbr,
+.pmpro_asterisk abbr[title] {
+	border: none;
+	color: var(--pmpro--color--error-text);
+	cursor: default;
+	text-decoration: none;
+}
+
+.pmpro_hidden {
+	display: none;
+}
+
+/**
+ * Print Styles
+ */
+@media print {
+	.pmpro {
+		.pmpro_actions_nav:not(.pmpro_login_wrap .pmpro_actions_nav),
+		.pmpro_actions_nav-right,
+		.pmpro_actions_nav-left,
+		.pmpro_card_actions,
+		.pmpro_hide_print {
+			display: none;
+		}
+
+		h2, h3 {
+			page-break-after: avoid;
+		}
+	}
+}
+
+/**
+ * Responsive Styles
+ */
+@media screen and (max-width: 767px) {
+	.pmpro_reset_password_wrap form.pmpro_form #pass-strength-result,
+	form.pmpro_form .pmpro_change_password-fields #pass-strength-result {
+		max-width: 90%;
+	}
+
+	.pmpro_actions_nav {
+		text-align: center;
+	}
+
+	.pmpro_actions_nav-left,
+	.pmpro_actions_nav-right {
+		flex-basis: 100%;
+		text-align: center;
+	}
+
+	.pmpro_table thead {
+		display: none;
+	}
+
+	.pmpro_table tbody tr th,
+	.pmpro_table tbody tr td,
+	.pmpro_table tfoot tr td {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+	}
+
+	.pmpro_table-fixed tbody tr th,
+	.pmpro_table-fixed tbody tr td,
+	.pmpro_table-fixed tfoot tr td {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.pmpro_table tbody tr th::before,
+	.pmpro_table tbody tr td::before,
+	.pmpro_table tfoot tr td::before {
+		content: attr(data-title) ": ";
+	}
+
+	.pmpro_table_cancel tbody tr td:last-child,
+	.pmpro_levels_table tbody tr td:last-child {
+		display: block;
+	}
+
+	.pmpro_table_cancel tbody tr td:last-child::before,
+	.pmpro_levels_table tbody tr td:last-child::before {
+		content: "";
+	}
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 1024px) {
+	.pmpro_checkout_gateway-stripe form.pmpro_form #pmpro_payment_information_fields #payment-request-button {
+		max-width: 50%;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+
+}
+/**
+ * The primary style variation for Paid Memberships Pro.
+ *
+ * These styles can be unset on the Memberships > Settings > Design admin screen.
+*/
+
+:root {
+	--pmpro--color--white: #fff;
+	--pmpro--box-shadow: 2px 2px 7px rgba( 0, 0, 0, 0.07 );
+}
+
+/**
+ * Main Container
+*/
+.pmpro {
+	color: var(--pmpro--color--contrast);
+
+	/**
+	* Sections
+	*/
+	.pmpro_section {
+		margin: calc( var(--pmpro--base--spacing--large) * 2 ) 0;
+	}
+
+	.pmpro_section:first-of-type {
+		margin-top: 0;
+	}
+
+	.pmpro_section_title {
+		font-weight: 700;
+		margin: 0;
+		padding: 0;
+	}
+
+	/**
+	* Cards
+	*/
+	.pmpro_card {
+		background-color: var(--pmpro--color--base);
+		border: 1px solid var(--pmpro--color--border--variation);
+		border-radius: var(--pmpro--base--border-radius);
+		box-shadow: var(--pmpro--box-shadow);
+		display: flex;
+		flex-direction: column;
+		margin: var(--pmpro--base--spacing--medium) 0;
+		overflow: hidden;
+	}
+
+	.pmpro_card_title {
+		color: var(--pmpro--color--contrast);
+		font-weight: 700;
+		margin: 0;
+		padding: var(--pmpro--base--spacing--large) var(--pmpro--base--spacing--large) 0;
+	}
+
+	.pmpro_card_content {
+		padding: var(--pmpro--base--spacing--small) var(--pmpro--base--spacing--large) var(--pmpro--base--spacing--large);
+
+		p:not(.pmpro_form_hint) {
+			margin: var(--pmpro--base--spacing--small) 0;
+			padding: 0;
+		}
+
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+
+	}
+
+	.pmpro_card_actions {
+		background-color: rgba( 0, 0, 0, 0.04 );
+		border-bottom: 1px solid var(--pmpro--color--border--variation);
+		padding: var(--pmpro--base--spacing--small) var(--pmpro--base--spacing--large);
+	}
+
+	.pmpro_card_content + .pmpro_card_actions {
+		border-top: 1px solid var(--pmpro--color--border--variation);
+		border-bottom: none;
+	}
+
+	.pmpro_card_actions button {
+
+	}
+
+	.pmpro_card_action_separator {
+		margin: 0 calc( var(--pmpro--base--spacing--small) / 2 );
+		opacity: 0.25;
+	}
+
+	/**
+	 * Heading Styles
+	 */
+	.pmpro_heading-with-avatar {
+		align-items: center;
+		display: flex;
+		font-weight: 700;
+		gap: var(--pmpro--base--spacing--small);
+	}
+
+	/**
+	* Contextual Messages
+	*/
+	.pmpro_message {
+		box-shadow: var(--pmpro--box-shadow);
+	}
+
+	/**
+	 * Buttons
+	 */
+	.pmpro_btn {
+		background-color: var(--pmpro--color--accent);
+		border: 1px solid var(--pmpro--color--accent);
+		border-radius: var(--pmpro--base--border-radius);
+		box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+		box-sizing: border-box;
+		color: var(--pmpro--color--base);
+		cursor: pointer;
+		display: inline-block;
+		font-size: 16px;
+		font-weight: 700;
+		letter-spacing: normal;
+		line-height: 1.5;
+		min-height: 40px;
+		outline: 0;
+		padding: var(--pmpro--base--spacing--small) var(--pmpro--base--spacing--medium);
+		text-align: center;
+		text-decoration: none;
+		text-rendering: geometricprecision;
+		text-transform: none;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+		vertical-align: middle;
+		transition: background-color 0.2s, color 0.2s;
+	}
+
+	.pmpro_btn:hover,
+	.pmpro_btn:focus {
+		background-color: var(--pmpro--color--accent--variation);
+		background-position: 0 0;
+		border-color: var(--pmpro--color--accent--variation);
+		color: var(--pmpro--color--base);
+	}
+
+	.pmpro_btn:active {
+		opacity: .7;
+	}
+
+	.pmpro_btn-outline {
+		background-color: transparent;
+		color: var(--pmpro--color--accent);
+	}
+
+	.pmpro_btn-outline:hover,
+	.pmpro_btn-outline:focus {
+		background-color: transparent;
+		border-color: var(--pmpro--color--accent--variation);
+		color: var(--pmpro--color--accent--variation);
+	}
+
+	.pmpro_btn-delete {
+		background-color: var(--pmpro--color--error-text);
+		border-color: var(--pmpro--color--error-text);
+	}
+
+	.pmpro_btn-delete:hover,
+	.pmpro_btn-delete:focus {
+		background-color: var(--pmpro--color--error-link);
+		border-color: var(--pmpro--color--error-link);
+	}
+
+	.pmpro_btn-cancel {
+		background-color: transparent;
+		border-color: var(--pmpro--color--border);
+		box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+		color: var(--pmpro--color--contrast);
+	}
+
+	.pmpro_btn-cancel:hover,
+	.pmpro_btn-cancel:focus {
+		background-color: var(--pmpro--color--border--variation);
+		border-color: var(--pmpro--color--border);
+		color: var(--pmpro--color--contrast);
+	}
+
+	.pmpro_btn-plain,
+	.pmpro_btn-plain:hover,
+	.pmpro_btn-plain:focus,
+	.pmpro_btn-plain:active {
+		background: 0 0;
+		border: 1px solid transparent;
+		box-shadow: none;
+		cursor: pointer;
+		font-size: 14px;
+		margin: 0;
+		padding: 0;
+	}
+
+	.pmpro_btn-print {
+		align-items: center;
+		color: var(--pmpro--color--accent);
+		display: inline-flex;
+		gap: calc( var(--pmpro--base--spacing--small) / 2 );
+		justify-content: space-between;
+		text-decoration: underline;
+	}
+
+	.pmpro_btn-print:hover {
+		color: var(--pmpro--color--accent--variation);
+	}
+
+	/**
+	 * Form Styles
+	 */
+	.pmpro_form {
+		margin: 0;
+	}
+
+	.pmpro_section:has(.pmpro_form) .pmpro_card_content {
+		padding-top: var(--pmpro--base--spacing--large);
+	}
+
+	.pmpro_section:has(.pmpro_form) .pmpro_card_title + .pmpro_card_content {
+		padding-top: var(--pmpro--base--spacing--small);
+	}
+
+	.pmpro_form_fieldset {
+		border: 0;
+		margin: 0;
+		padding: 0;
+	}
+
+	.pmpro_form_legend {
+		border: none;
+		margin: 0 0 var(--pmpro--base--spacing--medium);
+		padding: 0;
+	}
+
+	.pmpro_form_heading {
+		font-weight: 700;
+		margin: var(--pmpro--base--spacing--large) 0 0;
+		padding: 0;
+	}
+
+	.pmpro_card_content .pmpro_form_heading {
+		margin-top: 0;
+	}
+
+	.pmpro_form_fields {
+		display: flex;
+		flex-direction: column;
+		gap: var(--pmpro--base--spacing--medium);
+	}
+
+	.pmpro_form_fields-inline {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		gap: calc( var(--pmpro--base--spacing--small) / 2 );
+	}
+
+	.pmpro_form_field {
+		display: flex;
+		flex-direction: column;
+		gap: calc( var(--pmpro--base--spacing--small) / 2 );
+	}
+
+	.pmpro_form_label {
+		margin: 0;
+		padding: 0;
+	}
+
+	.pmpro_form_label:not(.pmpro_form_label-inline) {
+		display: block;
+		font-weight: 500;
+	}
+
+	.pmpro_form_input {
+		background-color: var(--pmpro--color--base);
+		border: 1px solid var(--pmpro--color--border);
+		border-radius: var(--pmpro--base--border-radius);
+		box-shadow: none;
+		box-sizing: border-box;
+		color: var(--pmpro--color--contrast);
+		font-size: 16px;
+		height: auto;
+		line-height: 1.5;
+		margin: 0;
+		min-height: auto;
+		outline: none;
+		padding: var(--pmpro--base--spacing--small);
+	}
+
+	.pmpro_form_input-textarea {
+		font-family: inherit;
+		width: 100%;
+	}
+
+	.pmpro_form_input-select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background-image: url('data:image/svg+xml;utf8,<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+		background-position: right var(--pmpro--base--spacing--small) center;
+		background-repeat: no-repeat;
+		background-size: 16px 16px;
+		padding-right: calc(var(--pmpro--base--spacing--small) + 20px);
+	}
+
+	.pmpro_form_input-text:focus,
+	.pmpro_form_input-email:focus,
+	.pmpro_form_input-url:focus,
+	.pmpro_form_input-password:focus,
+	.pmpro_form_input-search:focus,
+	.pmpro_form_input-select:focus,
+	.pmpro_form_input-checkbox:focus,
+	.pmpro_form_input-radio:focus,
+	.pmpro_form_input-multiselect:focus,
+	.pmpro_form_input-number:focus,
+	.pmpro_form_input-file:focus,
+	.pmpro_form_input-date:focus,
+	.pmpro_form_input-textarea:focus {
+		background-color: var(--pmpro--color--base);
+		border-color: #80BDFF;
+		box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+		outline: none;
+		word-break: initial;
+	}
+
+	.pmpro_form_hint {
+		display: block;
+		font-size: 14px;
+		margin: 0;
+		opacity: 0.75;
+		padding: 0;
+	}
+
+	.pmpro_form_field-checkbox {
+
+		.pmpro_form_label {
+			align-items: first baseline;
+			display: flex;
+			flex-direction: row;
+			gap: calc( var(--pmpro--base--spacing--small) / 2 );
+		}
+
+	}
+
+	.pmpro_form_field-radio-item {
+		align-items: baseline;
+		flex-direction: row;
+		flex-wrap: nowrap;
+
+		.pmpro_form_hint {
+			flex: 0 0 100%;
+		}
+	}
+
+	.pmpro_form_field-radio-item:not(:last-of-type) {
+		margin-bottom: calc( var(--pmpro--base--spacing--small) / 2 );
+	}
+
+	.pmpro_form_field-checkbox-grouped {
+
+		.pmpro_form_field-checkbox-grouped-item {
+			align-items: first baseline;
+			display: flex;
+			flex-direction: row;
+			gap: calc( var(--pmpro--base--spacing--small) / 2 );
+		}
+
+	}
+
+	.pmpro_form_input-multiselect {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.pmpro_form_field-file {
+
+		.pmpro_form_input-file {
+			border: 3px dashed var(--pmpro--color--border--variation);
+			border-radius: var(--pmpro--base--border-radius);
+			padding: var(--pmpro--base--spacing--small) var(--pmpro--base--spacing--medium);
+			width: 100%;
+		}
+
+		.pmpro_btn {
+			padding: 0 var(--pmpro--base--spacing--small);
+		}
+	}
+
+	/* Special Fields */
+	.pmpro_form_field-password-toggle {
+		align-items: center;
+		display: flex;
+		font-weight: 500;
+		justify-content: space-between;
+		margin: 0;
+		padding: 0;
+	}
+
+	.pmpro_form_field-password-toggle button,
+	.pmpro_form_field-password-toggle button:hover,
+	.pmpro_form_field-password-toggle button:focus,
+	.pmpro_form_field-password-toggle button:active {
+		align-items: center;
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		box-sizing: border-box;
+		color: var(--pmpro--color--accent);
+		display: flex;
+		flex-direction: row;
+		font-size: 16px;
+		gap: calc( var(--pmpro--base--spacing--small) / 2 );
+		line-height: 1;
+		margin: 0;
+		min-height: 1px;
+		padding: 0;
+	}
+
+	.pmpro_form_field-password-toggle button:focus,
+	.pmpro_form_field-password-toggle button:active {
+		box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+		color: var(--pmpro--color--accent--variation);
+		outline: none;
+	}
+
+	.pmpro_form_field-password-toggle .pmpro_icon-eye {
+		display: block;
+		height: 20px;
+		width: 20px;
+	}
+
+	.pmpro_form_field-password-toggle button:focus .pmpro_icon-eye svg,
+	.pmpro_form_field-password-toggle button:active .pmpro_icon-eye svg {
+		stroke: var(--pmpro--color--accent--variation);
+	}
+
+	.pmpro_form_field-select2 {
+		display: block;
+	}
+
+	.pmpro_form_field-select2 .pmpro_form_label {
+		margin-bottom: calc( var(--pmpro--base--spacing--small) / 2 );
+	}
+
+	.pmpro_form_field-select2 .pmpro_form_hint {
+		margin-top: calc( var(--pmpro--base--spacing--small) / 2 );
+	}
+
+	.pmpro_payment-expiration #ExpirationMonth,
+	.pmpro_payment-expiration #ExpirationYear {
+		flex-grow: 1;
+	}
+
+	.pmpro_payment-discount-code #pmpro_discount_code {
+		flex-grow: 1;
+	}
+
+	#other_discount_code_fields {
+		margin-bottom: var(--pmpro--base--spacing--small);
+	}
+
+	#pmpro_tos_fields {
+		margin: var(--pmpro--base--spacing--medium) 0;
+	}
+
+	#pmpro_tos_fields #pmpro_license {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.pmpro_form_submit {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--pmpro--base--spacing--medium);
+		margin-top: var(--pmpro--base--spacing--medium);
+	}
+
+	.pmpro_checkout_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#AccountNumber,
+	.pmpro_checkout_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#Expiry,
+	.pmpro_checkout_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#CVV,
+	.pmpro_billing_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#AccountNumber,
+	.pmpro_billing_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#Expiry,
+	.pmpro_billing_gateway-stripe form.pmpro_form #pmpro_payment_information_fields div#CVV {
+		background-color: var(--pmpro--color--white);
+		border-radius: var(--pmpro--base--border-radius);
+		padding: calc( var(--pmpro--base--spacing--small) + 3px );
+	}
+
+	[id^="pmpro_paypal"] .pmpro_btn-submit-checkout-paypal {
+		align-items: center;
+		background-color: #ffc439;
+		border-color: #ffc439;
+		color: #000;
+		display: flex;
+		flex-direction: row;
+		gap: calc( var(--pmpro--base--spacing--small) / 2 );
+		justify-content: center;
+	}
+
+	[id^="pmpro_paypal"] .pmpro_btn-submit-checkout-paypal:hover {
+		background-color: #ffb60a;
+		border-color: #ffb60a;
+	}
+
+	/* Login Form (WordPress default and our lost/reset password forms) */
+	#loginform {
+		margin-bottom: 0;
+	}
+
+	#loginform input[type="submit"] {
+		width: 100%;
+	}
+
+	.pmpro_section:has(#loginform) .pmpro_card_content:not(.widget .pmpro_section:has(#loginform) .pmpro_card_content) {
+		padding-top: var(--pmpro--base--spacing--large);
+	}
+
+	.pmpro_section #loginform .login-username,
+	.pmpro_section #loginform .login-password,
+	.pmpro_section #loginform .login-remember {
+		display: flex;
+		flex-direction: column;
+		gap: calc( var(--pmpro--base--spacing--small) / 2 );
+		margin: 0 0 var(--pmpro--base--spacing--medium);
+		padding: 0;
+	}
+
+	.pmpro_section #loginform label:not(.pmpro_section #loginform .login-remember label) {
+		align-items: center;
+		display: flex;
+		font-weight: 500;
+		justify-content: space-between;
+		margin: 0;
+		padding: 0;
+	}
+
+	.pmpro_section #loginform .input {
+		background-color: var(--pmpro--color--base);
+		border: 1px solid var(--pmpro--color--border);
+		border-radius: var(--pmpro--base--border-radius);
+		box-shadow: none;
+		box-sizing: border-box;
+		color: var(--pmpro--color--contrast);
+		font-size: 16px;
+		line-height: 1.5;
+		margin: 0;
+		min-height: auto;
+		outline: none;
+		padding: var(--pmpro--base--spacing--small);
+	}
+
+	.pmpro_section #loginform .input:focus {
+		background-color: var(--pmpro--color--base);
+		border-color: #80BDFF;
+		box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+		outline: none;
+		word-break: initial;
+	}
+
+	.pmpro_section #loginform .login-remember {
+		align-items: baseline;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.pmpro_section #loginform .login-submit {
+		margin: var(--pmpro--base--spacing--medium) 0 0;
+	}
+
+	.pmpro_section #loginform .login-submit .button {
+		background-color: var(--pmpro--color--accent);
+		border: 1px solid var(--pmpro--color--accent);
+		border-radius: var(--pmpro--base--border-radius);
+		box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+		box-sizing: border-box;
+		color: var(--pmpro--color--base);
+		cursor: pointer;
+		display: inline-block;
+		font-size: 16px;
+		font-weight: 700;
+		letter-spacing: normal;
+		line-height: 1.5;
+		min-height: 40px;
+		outline: 0;
+		padding: var(--pmpro--base--spacing--small) var(--pmpro--base--spacing--medium);
+		text-align: center;
+		text-decoration: none;
+		text-rendering: geometricprecision;
+		text-transform: none;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+		vertical-align: middle;
+		transition: background-color 0.2s, color 0.2s;
+	}
+
+	.pmpro_section #loginform .login-submit .button:hover,
+	.pmpro_section #loginform .login-submit .button:focus {
+		background-color: initial;
+		background-position: 0 0;
+		border-color: var(--pmpro--color--accent);
+		color: var(--pmpro--color--accent);
+	}
+
+	.pmpro_section #loginform .login-submit .button:active {
+		opacity: .7;
+	}
+
+	/* Move password toggle before field visually but structurally after */
+	#pmpro_user_fields .pmpro_form_field-password:has(.pmpro_form_field-password-toggle),
+	.pmpro_section #loginform .login-password {
+		align-items: center;
+		display: grid;
+		grid-template-areas:
+			"label toggle"
+			"input input";
+		grid-template-columns: 1fr auto;
+	}
+
+	#pmpro_user_fields .pmpro_form_field-password:has(.pmpro_form_field-password-toggle) label,
+	.pmpro_section #loginform .login-password label {
+		grid-area: label;
+	}
+
+	#pmpro_user_fields .pmpro_form_field-password:has(.pmpro_form_field-password-toggle) input,
+	.pmpro_section #loginform .login-password input {
+		grid-area: input;
+	}
+
+	#pmpro_user_fields .pmpro_form_field-password .pmpro_form_field-password-toggle,
+	.pmpro_section #loginform .login-password .pmpro_form_field-password-toggle {
+		grid-area: toggle;
+		justify-self: end;
+	}
+
+	#resetpassform .pmpro_cols-2 {
+		container: resetpassform / inline-size;
+	}
+
+	@container resetpassform (max-width: 620px) {
+		#resetpassform .pmpro_cols-2 {
+			flex-direction: column;
+		}
+
+		#resetpassform .pmpro_cols-2 > * {
+			width: 100%;
+		}
+	}
+
+	/* Data Filters */
+	.pmpro_data_filters {
+
+		.pmpro_form_input {
+			padding: calc( var(--pmpro--base--spacing--small) / 2 );
+		}
+
+		.pmpro_form_input-select {
+			padding-right: calc(var(--pmpro--base--spacing--small) + 20px);
+		}
+
+		.pmpro_btn {
+			min-height: auto;
+			padding: calc( var(--pmpro--base--spacing--small) / 2 ) var(--pmpro--base--spacing--medium);
+		}
+	}
+
+	/**
+	* List Styles
+	*/
+	.pmpro_list.pmpro_cols-3 {
+
+		.pmpro_list_item {
+			margin-bottom: 0;
+		}
+
+		li:not(.pmpro_list_item) {
+			border-top: 1px solid var(--pmpro--color--border--variation);
+			padding-top: var(--pmpro--base--spacing--medium);
+			grid-column: span 3;
+		}
+	}
+
+	.pmpro_list_item_label {
+		font-weight: 700;
+	}
+
+	.pmpro_list-with-labels {
+
+		.pmpro_list_item_label {
+			display: block;
+			font-weight: 400;
+			opacity: 0.75;
+		}
+
+		.pmpro_list_item_value {
+			font-weight: 700;
+		}
+
+	}
+
+	/**
+	* Tables and Table Elements
+	*/
+	.pmpro_table {
+		background-color: var(--pmpro--color--base);
+		border: none;
+		text-align: left;
+
+		thead th {
+			background-color: var(--pmpro--color--base);
+			border: none;
+			padding: var(--pmpro--base--spacing--small);
+			vertical-align: text-bottom;
+		}
+
+		tbody th,
+		tbody td,
+		tfoot td  {
+			background-color: var(--pmpro--color--base);
+			border-color: var(--pmpro--color--border--variation);
+			border-width: 1px 0 0 0;
+			border-style: solid;
+			font-weight: normal;
+			padding: var(--pmpro--base--spacing--small);
+			vertical-align: middle;
+		}
+
+	}
+
+	/**
+	* Membership Account
+	*/
+	#pmpro_account-membership-none {
+
+		.pmpro_card_content {
+			padding-top: var(--pmpro--base--spacing--large);
+
+			p {
+				margin: 0;
+			}
+
+		}
+
+	}
+
+	#pmpro_account-membership {
+
+		.pmpro_account-membership-message {
+			border-top: 1px solid var(--pmpro--color--border--variation);
+			margin-top: var(--pmpro--base--spacing--large);
+			padding-top: var(--pmpro--base--spacing--large);
+
+			> *:first-child {
+				margin-top: 0;
+				padding-top: 0;
+			}
+		}
+
+	}
+
+	#pmpro_account-links {
+
+		.pmpro_card_content {
+			padding-top: var(--pmpro--base--spacing--large);
+
+			.pmpro_list {
+				margin-bottom: 0;
+			}
+
+		}
+
+	}
+
+	/**
+	 * Membership Levels
+	 */
+	.pmpro_levels_table {
+		table-layout: fixed;
+	}
+
+	.pmpro_level td p:first-of-type {
+		margin-top: 0;
+	}
+
+	.pmpro_level .pmpro_btn {
+		display: block;
+		text-decoration: none;
+	}
+
+	/**
+	* Membership Billing
+	*/
+	[id^="pmpro_billing-"] .pmpro_card .pmpro_card {
+		background-color: transparent;
+		border: none;
+		border-radius: unset;
+		box-shadow: none;
+		margin: 0;
+
+		.pmpro_card_content {
+			padding: 0;
+		}
+	}
+
+	/**
+	* Membership Orders
+	*/
+	.pmpro_table_orders .pmpro_tag {
+		display: block;
+	}
+
+	#pmpro_order_single {
+
+		.pmpro_card_actions {
+			text-align: right;
+		}
+
+		h2 {
+			align-items: center;
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--pmpro--base--spacing--small);
+			justify-content: space-between;
+		}
+
+		.pmpro_list-with-labels {
+
+			.pmpro_list_item_label {
+				font-weight: 700;
+				opacity: 1;
+			}
+
+		}
+
+		.pmpro_table {
+
+			thead th {
+				white-space: nowrap;
+			}
+
+			thead th:not(th:first-of-type),
+			tbody td,
+			tfoot td {
+				text-align: right;
+			}
+
+			tfoot tr:last-of-type td {
+				font-weight: 700;
+			}
+
+		}
+
+	}
+
+	.pmpro_price_part-total {
+		border-top: 1px solid var(--pmpro--color--border--variation);
+		margin-top: var(--pmpro--base--spacing--small);
+		padding-top: var(--pmpro--base--spacing--small);
+	}
+
+	/**
+	* Logged In Member Widget
+	*/
+	.pmpro_logged_in_welcome_wrap .menu {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.pmpro_logged_in_welcome_wrap .menu-item {
+		display: block;
+		margin: 0 0 calc( var(--pmpro--base--spacing--small) / 2 );
+	}
+
+	/**
+	* Protected Content Messages
+	*/
+	.pmpro_content_message .pmpro_card_title {
+		align-items: center;
+		display: flex;
+		gap: var(--pmpro--base--spacing--small);
+	}
+
+	.pmpro_content_message:has(.pmpro_card_title) .pmpro_card_content {
+		padding-top: 0;
+	}
+
+	.pmpro_content_message .pmpro_card_content h2 {
+		margin: 0;
+		padding: 0;
+	}
+
+	.pmpro_content_message .pmpro_card_content p {
+		margin: var(--pmpro--base--spacing--medium) 0;
+		padding: 0;
+	}
+
+	.pmpro_content_message .pmpro_card_content p:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.pmpro_content_message .pmpro_card_content .pmpro_btn {
+		text-decoration: none;
+	}
+
+	.pmpro_content_message .pmpro_card_actions {
+		padding-right: var(--pmpro--base--spacing--large);
+		padding-left: var(--pmpro--base--spacing--large);
+	}
+
+	/**
+	 * Pagination
+	 */
+	.pmpro_pagination {
+		align-items: center;
+		display: flex;
+		gap: var(--pmpro--base--spacing--small);
+		justify-content: center;
+		margin: var(--pmpro--base--spacing--medium) 0;
+
+		a {
+			background-color: var(--pmpro--color--base);
+			border: 1px solid var(--pmpro--color--border--variation);
+			border-radius: var(--pmpro--base--border-radius);
+			color: var(--pmpro--color--contrast);
+			padding: 2px var(--pmpro--base--spacing--small);
+			text-decoration: none;
+			transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+			&:hover {
+				background-color: var(--pmpro--color--accent--variation);
+				border-color: var(--pmpro--color--accent--variation);
+				color: var(--pmpro--color--base);
+			}
+		}
+
+		span {
+			background-color: var(--pmpro--color--base);
+			border: 1px solid var(--pmpro--color--border--variation);
+			border-radius: var(--pmpro--base--border-radius);
+			color: var(--pmpro--color--contrast);
+			padding: 2px var(--pmpro--base--spacing--small);
+		}
+
+		.pmpro_pagination-current {
+			background-color: var(--pmpro--color--accent);
+			color: var(--pmpro--color--base);
+			cursor: default;
+			font-weight: 700;
+		}
+
+		.pmpro_pagination-disabled {
+			background-color: var(--pmpro--color--base--variation);
+			border-color: var(--pmpro--color--border--variation);
+			color: var(--pmpro--color--contrast--variation);
+			cursor: not-allowed;
+			opacity: 0.7;
+		}
+
+		.pmpro_pagination-dots {
+			background: none;
+			border: none;
+			color: var(--pmpro--color--contrast--variation);
+			padding: 0;
+		}
+
+		.pmpro_pagination-previous {
+			margin-right: 0;
+		}
+
+		.pmpro_pagination-next {
+			margin-left: 0;
+		}
+
+	}
+
+	/**
+	 * Misc
+	 */
+	.avatar {
+		border: 1px solid var(--pmpro--color--border--variation);
+		border-radius: 50%;
+		box-shadow: var(--pmpro--box-shadow);
+		margin: 0;
+		padding: 0;
+	}
+
+	.pmpro_cols-2,
+	.pmpro_cols-3 {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--pmpro--base--spacing--medium);
+	}
+
+	.pmpro_cols-2 > * {
+		width: calc( 50% - calc( var(--pmpro--base--spacing--medium) / 2 ) );
+	}
+
+	.pmpro_cols-3 > * {
+		width: calc( 33.333333% - calc( var(--pmpro--base--spacing--medium) * 2 / 3 ) );
+	}
+
+	.pmpro_font-x-large {
+		font-size: 32px;
+		line-height: 1.4;
+	}
+
+	.pmpro_font-large {
+		font-size: 24px;
+		line-height: 1.5;
+	}
+
+	.pmpro_font-medium {
+		font-size: 16px;
+		line-height: 1.6;
+	}
+
+	.pmpro_font-small {
+		font-size: 14px;
+		line-height: 1.5;
+	}
+
+	.pmpro_tag-discount-code {
+		border-style: dashed;
+	}
+
+	.pmpro_divider {
+		background-color: var(--pmpro--color--border--variation);
+		height: 1px;
+		margin: var(--pmpro--base--spacing--medium) 0;
+	}
+
+	.pmpro_form .pmpro_divider {
+		margin-top: var(--pmpro--base--spacing--large);
+	}
+
+}
+
+/**
+ * RTL Styles
+ */
+.rtl {
+
+	.pmpro_form_field-password-toggle {
+		padding: 0 0 0 var(--pmpro--base--spacing--small);
+	}
+
+}
+
+/**
+ * Print Styles
+ */
+@media print {
+	.pmpro {
+		font-size: 12pt;
+
+		.pmpro_section {
+			margin: var(--pmpro--base--spacing--medium) 0;
+		}
+
+		.pmpro_card_title {
+			padding: var(--pmpro--base--spacing--small) var(--pmpro--base--spacing--small) 0;
+		}
+
+		.pmpro_card_content {
+			padding: var(--pmpro--base--spacing--small) var(--pmpro--base--spacing--small) var(--pmpro--base--spacing--small);
+		}
+
+		.pmpro_section:has(.pmpro_form) .pmpro_card_content {
+			padding-top: var(--pmpro--base--spacing--small);
+		}
+
+		.pmpro_font-x-large {
+			font-size: 18pt;
+		}
+
+		.pmpro_font-large {
+			font-size: 14pt;
+		}
+
+		.pmpro_font-medium {
+			font-size: 14pt;
+		}
+
+	}
+}
+
+/**
+ * Print Styles
+ */
+@media print {
+	.pmpro {
+		.pmpro_card {
+			background-color: transparent;
+			border: none;
+			box-shadow: none;
+		}
+		.pmpro_card_title,
+		.pmpro_card_content,
+		.pmpro_section:has(.pmpro_form) .pmpro_card_title + .pmpro_card_content {
+			padding: 0;
+		}
+		.pmpro_form_legend {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/**
+ * Responsive Styles
+ */
+@media screen and (max-width: 767px) {
+	.pmpro {
+
+		.pmpro_table {
+
+			tbody tr th:first-child,
+			tbody tr td:first-child {
+				border-top-width: 4px;
+				padding-top: var(--pmpro--base--spacing--large);
+			}
+
+			tbody tr th:last-child,
+			tbody tr td:last-child {
+				padding-bottom: var(--pmpro--base--spacing--large);
+			}
+
+			tbody tr:first-child th:first-child,
+			tbody tr:first-child td:first-child {
+				border-top: none;
+			}
+		}
+
+		#pmpro_order_single {
+
+			.pmpro_table {
+
+				thead th:not(th:first-of-type),
+				tbody td,
+				tfoot td {
+					text-align: left;
+				}
+
+				tbody tr:first-child th {
+					display: block;
+				}
+
+				tbody tr:first-child th:before {
+					display: none;
+				}
+
+				tfoot td:first-of-type {
+					display: none;
+				}
+			}
+
+		}
+
+		.pmpro_table_cancel {
+			border-bottom: 1px solid var(--pmpro--color--border--variation);
+		}
+
+		.pmpro_table_cancel tbody tr td {
+			border-width: 0;
+			padding-top: 0;
+		}
+
+		.pmpro_cols-2,
+		.pmpro_cols-3 {
+			display: flex;
+			flex-direction: column;
+			gap: var(--pmpro--base--spacing--medium);
+		}
+
+		.pmpro_cols-2 > *,
+		.pmpro_cols-3 > * {
+			width: auto;
+		}
+
+		#pmpro_user_fields .pmpro_form_field-password:has(.pmpro_form_field-password-toggle) {
+			width: 100%;
+		}
+
+	}
+
+}
