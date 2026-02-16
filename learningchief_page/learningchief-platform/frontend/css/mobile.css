@@ -1,0 +1,838 @@
+/**
+ * LearningChief - Mobile Responsive Styles
+ * Comprehensive mobile-first responsive design
+ * ONLY contains @media queries - won't affect desktop
+ */
+
+/* ===================================
+   Tablet & Mobile Tabs (up to 768px)
+   =================================== */
+
+@media (max-width: 768px) {
+    .main-tabs {
+        gap: 0;
+        border-radius: 12px 12px 0 0;
+        overflow: hidden;
+    }
+
+    .main-tab {
+        flex-direction: column;
+        padding: 10px 4px;
+        gap: 3px;
+        font-size: 0.8rem;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .main-tab .tab-icon {
+        font-size: 1.1rem;
+    }
+
+    .main-tab span:not(.tab-icon) {
+        font-size: 0.65rem;
+        line-height: 1.2;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+/* ===================================
+   Small Mobile (up to 480px)
+   =================================== */
+
+@media (max-width: 480px) {
+
+    /* Header */
+    .header-content {
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .logo-section {
+        gap: 8px;
+    }
+
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-text h1 {
+        font-size: 1.1rem;
+    }
+
+    .tagline {
+        display: none;
+    }
+
+    .header-nav {
+        gap: 4px;
+    }
+
+    .nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    /* Profile indicator - compact on small screens */
+    .profile-indicator {
+        padding: var(--spacing-xs) var(--spacing-sm) !important;
+    }
+
+    .profile-indicator-name {
+        display: none;
+    }
+
+    .profile-indicator-arrow {
+        display: none;
+    }
+
+    /* XP Bar */
+    .xp-bar-wrapper {
+        padding: 4px 8px;
+        gap: 6px;
+    }
+
+    .xp-level-badge {
+        width: 28px;
+        height: 28px;
+    }
+
+    .xp-level-badge .level-number {
+        font-size: 0.9rem;
+    }
+
+    .xp-bar-track {
+        height: 18px;
+        min-width: 80px;
+    }
+
+    .xp-bar-text {
+        font-size: 0.65rem;
+    }
+
+    /* Tabs */
+    .tab-nav {
+        gap: 4px;
+        padding: 4px;
+    }
+
+    .tab-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .tab-btn .tab-icon {
+        font-size: 1rem;
+    }
+
+    .tab-btn .tab-text {
+        display: none;
+    }
+
+    /* Main Content */
+    .main-content {
+        padding: 12px;
+    }
+
+    /* Config Panel */
+    .config-panel {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .config-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .config-grid {
+        gap: 12px;
+    }
+
+    .config-card {
+        padding: 12px;
+    }
+
+    .config-label {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .label-icon {
+        font-size: 1rem;
+    }
+
+    /* Subject Buttons */
+    .subject-buttons {
+        gap: 8px;
+    }
+
+    .subject-btn {
+        padding: 10px 8px;
+    }
+
+    .subject-icon {
+        font-size: 1.4rem;
+    }
+
+    .subject-btn span:last-child {
+        font-size: 0.85rem;
+    }
+
+    /* Inputs */
+    .config-select,
+    .config-input {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .number-input-group {
+        gap: 4px;
+    }
+
+    .number-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+
+    .number-input {
+        padding: 8px;
+        font-size: 1rem;
+        max-width: 60px;
+    }
+
+    /* Toggle */
+    .toggle {
+        width: 48px;
+        height: 26px;
+    }
+
+    .toggle-slider::before {
+        height: 18px;
+        width: 18px;
+    }
+
+    .toggle input:checked+.toggle-slider::before {
+        transform: translateX(22px);
+    }
+
+    /* Generation Buttons */
+    .generation-buttons {
+        gap: 12px;
+    }
+
+    .generate-btn {
+        padding: 16px 24px;
+        min-width: unset;
+        border-radius: 16px;
+    }
+
+    .btn-icon {
+        font-size: 1.5rem;
+    }
+
+    .btn-text {
+        font-size: 0.95rem;
+    }
+
+    .btn-subtitle {
+        font-size: 0.75rem;
+    }
+
+    /* Worksheet Section */
+    .worksheet-section {
+        border-radius: 16px;
+    }
+
+    .worksheet-toolbar {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .toolbar-left h3 {
+        font-size: 1rem;
+    }
+
+    .toolbar-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .worksheets-container {
+        padding: 12px;
+    }
+
+    /* Worksheet pages — scale down for mobile */
+    .worksheet-page {
+        padding: 16px;
+        border-radius: 12px;
+        overflow-x: hidden;
+    }
+
+    .worksheet-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .worksheet-info {
+        text-align: left;
+    }
+
+    .worksheet-brand-text {
+        font-size: 1.1rem;
+    }
+
+    .worksheet-title {
+        font-size: 1.3rem;
+    }
+
+    .worksheet-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .student-info {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 14px;
+    }
+
+    .student-field .line {
+        width: 100px;
+    }
+
+    .question-item {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .question-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+    }
+
+    .question-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .answer-line {
+        width: 80px;
+    }
+
+    .inline-blank {
+        width: 80px;
+        min-width: 60px;
+    }
+
+    .multiple-choice {
+        grid-template-columns: 1fr;
+    }
+
+    .shape-container {
+        justify-content: center;
+    }
+
+    .shape-svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .sorting-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .math-operation-box {
+        padding: 12px;
+        min-width: 80px;
+    }
+
+    .worksheet-subject {
+        font-size: 1rem;
+    }
+
+    /* Interactive Mode */
+    .interactive-header {
+        padding: 12px;
+    }
+
+    .back-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .progress-bar {
+        height: 10px;
+    }
+
+    .score-section {
+        padding: 6px 10px;
+    }
+
+    .score-value {
+        font-size: 1.2rem;
+    }
+
+    .interactive-content {
+        padding: 16px;
+        min-height: 300px;
+    }
+
+    /* Smart Marker */
+    .smart-marker-container {
+        padding: 16px;
+    }
+
+    .capture-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Progress Dashboard */
+    .dashboard-grid {
+        gap: 12px;
+    }
+
+    .dashboard-card {
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 1.8rem;
+    }
+
+    /* Completion Screen */
+    .completion-content {
+        padding: 24px 16px;
+        margin: 16px;
+    }
+
+    .celebration-stars {
+        font-size: 2.5rem;
+    }
+
+    .completion-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .completion-score {
+        font-size: 2rem;
+    }
+
+    .completion-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .action-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    /* Topic Feedback */
+    .topic-feedback {
+        font-size: 0.8rem;
+    }
+
+    .topic-feedback .topic-tag {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+
+    /* MAIN TABS - Fixed for mobile */
+    .main-tabs {
+        border-radius: 12px 12px 0 0;
+    }
+
+    .main-tab {
+        flex-direction: column;
+        padding: 10px 6px;
+        gap: 4px;
+        font-size: 0.7rem;
+    }
+
+    .main-tab .tab-icon {
+        font-size: 1.2rem;
+    }
+
+    .main-tab span:not(.tab-icon) {
+        font-size: 0.6rem;
+        line-height: 1.1;
+        text-align: center;
+        white-space: normal;
+    }
+
+    /* PROGRESS DASHBOARD - Fixed for mobile */
+    .profile-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 16px;
+    }
+
+    .profile-header .profile-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .stat-card .stat-icon {
+        font-size: 1.3rem;
+    }
+
+    .stat-card .stat-value {
+        font-size: 1.6rem;
+    }
+
+    .stat-card .stat-label {
+        font-size: 0.75rem;
+    }
+
+    /* Badge showcase - horizontal scroll */
+    .badge-showcase {
+        padding: 16px;
+    }
+
+    .badge-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .badge-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .badge-item {
+        flex: 0 0 auto;
+        min-width: 80px;
+    }
+
+    /* Charts smaller */
+    .chart-wrapper {
+        height: 180px;
+    }
+
+    /* Dashboard sections spacing */
+    .dashboard-section {
+        margin-bottom: 16px;
+        padding: 14px;
+    }
+
+    .dashboard-section h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+}
+
+/* ===================================
+   Medium Mobile (481px - 768px)
+   =================================== */
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .header-content {
+        padding: 12px 16px;
+    }
+
+    .brand-text h1 {
+        font-size: 1.3rem;
+    }
+
+    .tagline {
+        font-size: 0.8rem;
+    }
+
+    .config-panel {
+        padding: 20px;
+    }
+
+    .config-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .generate-btn {
+        padding: 18px 28px;
+    }
+}
+
+/* ===================================
+   All Mobile (up to 768px)
+   =================================== */
+
+@media (max-width: 768px) {
+
+    /* Prevent horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+
+    .app-container {
+        overflow-x: hidden;
+    }
+
+    /* MAIN TABS - better layout for tablets */
+    .main-tab {
+        padding: 14px 12px;
+        gap: 6px;
+    }
+
+    .main-tab span:not(.tab-icon) {
+        font-size: 0.85rem;
+    }
+
+    /* Stack header elements */
+    .header-content {
+        flex-wrap: wrap;
+    }
+
+    /* Hide XP bar on very small screens, show compact version */
+    #xpBarContainer {
+        order: 3;
+        width: 100%;
+        margin: 8px 0 0 0;
+    }
+
+    .xp-bar-wrapper {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Tutor Panel - Bottom sheet on mobile */
+    .tutor-panel {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 60vh;
+        top: auto;
+        bottom: 0;
+        right: 0;
+        border-radius: 20px 20px 0 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .tutor-panel.open {
+        right: 0;
+        transform: translateY(0);
+    }
+
+    /* Smart Marker camera view */
+    .camera-preview {
+        max-height: 50vh;
+    }
+
+    /* Worksheet questions - prevent overflow */
+    .question-text {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Charts responsive */
+    .chart-container {
+        height: 200px !important;
+    }
+
+    /* Modal adjustments */
+    .modal-content {
+        margin: 16px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    /* Achievement popup */
+    .achievement-popup {
+        margin: 16px;
+        padding: 24px 16px;
+        max-width: calc(100vw - 32px);
+    }
+
+    .achievement-badge {
+        font-size: 3.5rem;
+    }
+
+    /* Level up banner */
+    .level-up-content h2 {
+        font-size: 2rem;
+    }
+
+    .new-level {
+        font-size: 1.5rem;
+        padding: 10px 24px;
+    }
+}
+
+/* ===================================
+   Touch Device Optimizations
+   =================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+    /* Larger touch targets */
+    .nav-btn,
+    .toolbar-btn,
+    .number-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .subject-btn {
+        min-height: 60px;
+    }
+
+    .generate-btn {
+        min-height: 70px;
+    }
+
+    /* Remove hover effects that don't work on touch */
+    .config-card:hover {
+        border-color: transparent;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .nav-btn:hover,
+    .toolbar-btn:hover {
+        transform: none;
+    }
+
+    /* Add active states instead */
+    .nav-btn:active,
+    .toolbar-btn:active,
+    .generate-btn:active {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+
+    .subject-btn:active {
+        transform: scale(0.98);
+    }
+
+    /* Prevent text selection on buttons */
+    button,
+    .btn,
+    .nav-btn,
+    .tab-btn {
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* ===================================
+   Landscape Mobile
+   =================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        position: relative;
+    }
+
+    .main-content {
+        padding-top: 8px;
+    }
+
+    .completion-screen {
+        align-items: flex-start;
+        padding-top: 16px;
+    }
+
+    .completion-content {
+        padding: 16px;
+    }
+
+    .celebration-stars {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .completion-content h2 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+
+    .completion-score {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+}
+
+/* ===================================
+   Medium Mobile / Small Tablet (481px - 600px)
+   =================================== */
+
+@media (min-width: 481px) and (max-width: 600px) {
+
+    /* Tabs - shrink to fit */
+    .tab-nav {
+        gap: 4px;
+        padding: 4px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-btn {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        min-width: 0;
+        flex: 1 1 0;
+        white-space: nowrap;
+    }
+
+    .tab-btn .tab-icon {
+        font-size: 0.95rem;
+    }
+
+    .tab-btn .tab-text {
+        font-size: 0.75rem;
+    }
+
+    /* Worksheet pages */
+    .worksheet-page {
+        padding: 20px;
+    }
+
+    .worksheet-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .worksheet-info {
+        text-align: left;
+    }
+
+    .student-info {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* ===================================
+   Print - Hide mobile nav
+   =================================== */
+
+@media print {
+
+    .header-nav,
+    #xpBarContainer,
+    .tab-nav {
+        display: none !important;
+    }
+}

@@ -1,0 +1,901 @@
+/**
+ * Smart Marker - Mobile-First Styles
+ * Camera capture, upload, and results display
+ */
+
+/* ========================================
+   Main Tab Navigation
+   ======================================== */
+
+.main-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.main-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 24px;
+    border: none;
+    background: #f5f5f5;
+    color: #666;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-tab .tab-icon {
+    font-size: 1.3rem;
+}
+
+.main-tab:hover {
+    background: #eee;
+    color: #333;
+}
+
+.main-tab.active {
+    background: white;
+    color: #6366f1;
+}
+
+.main-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+/* Tab Content Areas */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Config Panel adjustments for tabs */
+.config-panel.tabbed {
+    padding-top: 0;
+}
+
+.config-panel.tabbed .config-header {
+    padding-top: 24px;
+}
+
+/* ========================================
+   Mark My Work Section
+   ======================================== */
+
+.mark-work-section {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mark-work-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.mark-work-header h2 {
+    font-size: 1.8rem;
+    color: var(--text-primary, #333);
+    margin-bottom: 8px;
+}
+
+.mark-work-header p {
+    color: var(--text-secondary, #666);
+    font-size: 1rem;
+}
+
+/* ========================================
+   Privacy Notice Modal
+   ======================================== */
+
+.privacy-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.privacy-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.privacy-modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.privacy-modal-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.privacy-modal-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.privacy-modal-content .icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.privacy-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.privacy-buttons button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.privacy-buttons button:active {
+    transform: scale(0.95);
+}
+
+.btn-decline {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+.btn-accept {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+    color: white;
+}
+
+/* ========================================
+   Capture Options (Mobile-First)
+   ======================================== */
+
+.capture-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.capture-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 24px;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+}
+
+.capture-btn:active {
+    transform: scale(0.98);
+}
+
+.capture-btn-camera {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.capture-btn-camera:hover {
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.capture-btn-upload {
+    background: white;
+    color: #333;
+    border: 2px dashed #ddd;
+}
+
+.capture-btn-upload:hover {
+    border-color: #6366f1;
+    background: #f5f5ff;
+}
+
+.capture-btn .icon {
+    font-size: 1.5rem;
+}
+
+/* Hide camera on desktop if no camera available */
+.no-camera .capture-btn-camera {
+    display: none;
+}
+
+/* ========================================
+   Camera Overlay (Full Screen)
+   ======================================== */
+
+.camera-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+}
+
+.camera-overlay.active {
+    display: flex;
+}
+
+.camera-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.camera-header h3 {
+    font-size: 1.1rem;
+}
+
+.camera-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.camera-viewfinder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.camera-viewfinder video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.camera-controls {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.camera-capture-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: white;
+    border: 4px solid #6366f1;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.camera-capture-btn:active {
+    transform: scale(0.9);
+}
+
+.camera-capture-btn::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 6px;
+    border-radius: 50%;
+    background: #6366f1;
+}
+
+/* ========================================
+   Image Preview
+   ======================================== */
+
+.image-preview-section {
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.image-preview-section.active {
+    display: flex;
+}
+
+.preview-container {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.preview-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.preview-remove {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.preview-actions button {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.preview-actions button:active {
+    transform: scale(0.98);
+}
+
+.btn-retake {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.btn-mark {
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: none;
+    color: white;
+}
+
+/* ========================================
+   Loading State
+   ======================================== */
+
+.marking-loader {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.marking-loader.active {
+    display: flex;
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #f0f0f0;
+    border-top-color: #6366f1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.marking-loader p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.marking-loader .loading-tip {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* ========================================
+   Results Section
+   ======================================== */
+
+.marking-results {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.marking-results.active {
+    display: flex;
+}
+
+/* Overall Score Card */
+.score-card {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 20px;
+    padding: 24px;
+    color: white;
+    text-align: center;
+}
+
+.score-display {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.score-display .score-total {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.score-percentage {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 16px;
+}
+
+.score-praise {
+    font-size: 1.1rem;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+}
+
+/* Question Results */
+.questions-results {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.question-result {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid #e5e7eb;
+}
+
+.question-result.correct {
+    border-left-color: #10b981;
+}
+
+.question-result.incorrect {
+    border-left-color: #ef4444;
+}
+
+/* Question Header */
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.question-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #374151;
+}
+
+.question-status-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.question-status-icon.correct {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.question-status-icon.incorrect {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+/* Question Body */
+.question-body {
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+/* Answer Rows */
+.answer-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.question-result.correct .answer-row {
+    background: #ecfdf5;
+}
+
+.question-result.incorrect .answer-row {
+    background: #fef2f2;
+}
+
+.answer-row.correct-answer {
+    background: #dcfce7;
+    border: 1px solid #86efac;
+}
+
+.answer-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #6b7280;
+    min-width: 90px;
+    flex-shrink: 0;
+}
+
+.answer-value {
+    font-size: 0.95rem;
+    color: #111827;
+    font-weight: 500;
+}
+
+.question-result.incorrect .answer-value {
+    color: #dc2626;
+}
+
+.answer-row.correct-answer .answer-value {
+    color: #059669;
+}
+
+/* Coaching Card */
+.coaching-card {
+    margin-top: 16px;
+    padding: 16px;
+    background: #fffbeb;
+    border-radius: 12px;
+    border: 1px solid #fde68a;
+}
+
+.coaching-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #92400e;
+    margin-bottom: 14px;
+}
+
+.coaching-icon {
+    font-size: 1.2rem;
+}
+
+.coaching-section {
+    margin-bottom: 14px;
+}
+
+.coaching-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.coaching-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #b45309;
+    margin-bottom: 6px;
+}
+
+.coaching-section p {
+    color: #78350f;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.coaching-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    margin-top: 12px;
+    border: 1px solid #fde68a;
+}
+
+.tip-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* Voice Read Button */
+.btn-read-aloud {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    background: white;
+    border: 1px solid #d97706;
+    color: #92400e;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-read-aloud:hover {
+    background: #fffbeb;
+}
+
+/* Overall Advice */
+.overall-advice {
+    background: #f0f9ff;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #bae6fd;
+}
+
+.overall-advice h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #0284c7;
+    margin-bottom: 12px;
+}
+
+.overall-advice p {
+    color: #0369a1;
+    line-height: 1.6;
+}
+
+/* Suggested Practice */
+.suggested-practice {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.suggested-practice h3 {
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.practice-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.practice-topic {
+    padding: 8px 16px;
+    background: #f0f9ff;
+    color: #0284c7;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.btn-practice {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.btn-practice:active {
+    transform: scale(0.98);
+}
+
+/* Reset Button */
+.btn-mark-another {
+    width: 100%;
+    padding: 16px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* ========================================
+   Year Group Selector
+   ======================================== */
+
+.year-selector {
+    margin-bottom: 20px;
+}
+
+.year-selector label {
+    display: block;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.year-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.year-btn {
+    padding: 10px 16px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.year-btn.active {
+    border-color: #6366f1;
+    background: #f0f0ff;
+    color: #6366f1;
+}
+
+/* ========================================
+   Responsive (Mobile)
+   ======================================== */
+
+@media (max-width: 480px) {
+    .main-tab {
+        flex-direction: column;
+        padding: 10px 6px;
+        gap: 4px;
+        font-size: 0.65rem;
+    }
+
+    .main-tab .tab-icon {
+        font-size: 1.1rem;
+    }
+
+    .main-tab span:not(.tab-icon) {
+        font-size: 0.6rem;
+        line-height: 1.1;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-tabs {
+        gap: 0;
+    }
+
+    .main-tab {
+        flex-direction: column;
+        padding: 10px 8px;
+        gap: 4px;
+        font-size: 0.8rem;
+    }
+
+    .main-tab .tab-icon {
+        font-size: 1.1rem;
+    }
+
+    .main-tab span:not(.tab-icon) {
+        font-size: 0.7rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+}
+
+/* ========================================
+   Responsive (Desktop Enhancements)
+   ======================================== */
+
+@media (min-width: 768px) {
+    .capture-options {
+        flex-direction: row;
+    }
+
+    .capture-btn {
+        flex: 1;
+    }
+
+    .questions-results {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

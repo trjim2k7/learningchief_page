@@ -1,0 +1,292 @@
+/* ===================================
+   Scratchpad - Full Screen Notepad
+   =================================== */
+
+.scratchpad-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    display: none;
+    flex-direction: column;
+    background: #4a4a5a;
+}
+
+.scratchpad-overlay.open {
+    display: flex;
+}
+
+/* Question Banner (top) */
+.sp-question-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: 12px 20px;
+    background: rgba(30, 41, 59, 0.92);
+    backdrop-filter: blur(12px);
+    color: #f1f5f9;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    min-height: 48px;
+    max-height: 80px;
+    overflow: hidden;
+}
+
+.sp-q-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-blue), #6366f1);
+    color: white;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Canvas Area */
+.sp-canvas-wrap {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #3a3a4a;
+}
+
+/* Spiral binding decoration (left side) */
+.sp-canvas-wrap::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 36px;
+    background: linear-gradient(90deg,
+            #8b7355 0%,
+            #a08060 30%,
+            #8b7355 50%,
+            transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Spiral rings */
+.sp-spiral-rings {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 36px;
+    z-index: 3;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.sp-spiral-ring {
+    position: absolute;
+    left: 6px;
+    width: 24px;
+    height: 24px;
+    border: 3px solid #b8b8c8;
+    border-radius: 50%;
+    background: rgba(200, 200, 210, 0.3);
+    box-shadow:
+        inset 0 1px 2px rgba(0, 0, 0, 0.2),
+        0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+#scratchpadCanvas {
+    display: block;
+    touch-action: none;
+    cursor: crosshair;
+}
+
+/* Bottom Toolbar */
+.sp-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sp-toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 8px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sp-toolbar-group:last-child {
+    border-right: none;
+}
+
+.sp-tool-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sp-tool-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.sp-tool-btn.active {
+    background: rgba(99, 102, 241, 0.3);
+    border-color: #6366f1;
+    color: white;
+}
+
+.sp-tool-btn.close {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+.sp-tool-btn.close:hover {
+    background: rgba(239, 68, 68, 0.4);
+    color: white;
+}
+
+/* Color picker buttons */
+.sp-color-btn {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sp-color-btn:hover {
+    transform: scale(1.15);
+}
+
+.sp-color-btn.active {
+    border-color: white;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    transform: scale(1.15);
+}
+
+/* Pen size slider */
+.sp-size-slider {
+    width: 80px;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
+}
+
+.sp-size-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #6366f1;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.sp-size-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #6366f1;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+/* Scratchpad button on questions */
+.scratchpad-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 2px solid #f59e0b;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #92400e;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+}
+
+.scratchpad-btn:hover {
+    background: linear-gradient(135deg, #fde68a, #fcd34d);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.scratchpad-btn .sp-btn-icon {
+    font-size: 1.1rem;
+}
+
+/* Layout for submit + scratchpad buttons */
+.interactive-input-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+/* ===================================
+   Mobile Responsive
+   =================================== */
+
+@media (max-width: 480px) {
+    .sp-question-banner {
+        font-size: 0.85rem;
+        padding: 10px 14px;
+    }
+
+    .sp-toolbar {
+        padding: 8px 10px;
+        gap: 4px;
+    }
+
+    .sp-tool-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .sp-color-btn {
+        width: 26px;
+        height: 26px;
+    }
+
+    .sp-toolbar-group {
+        padding: 0 4px;
+    }
+
+    .sp-size-slider {
+        width: 60px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .sp-tool-btn {
+        width: 40px;
+        height: 40px;
+    }
+}

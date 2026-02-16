@@ -1,0 +1,26 @@
+{
+  "name": "learningchief-worksheets",
+  "version": "1.0.0",
+  "description": "Professional worksheet generator for children - Math and English",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js"
+  },
+  "keywords": [
+    "education",
+    "worksheets",
+    "math",
+    "english",
+    "children"
+  ],
+  "author": "LearningChief",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "multer": "^2.0.2"
+  }
+}

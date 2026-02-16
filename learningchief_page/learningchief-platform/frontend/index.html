@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="LearningChief - Professional worksheet generator for children. Create Math and English worksheets with AI-powered generation.">
+    <title>LearningChief - Smart Practice for Young Learners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/worksheet.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/smart-marker.css">
+    <link rel="stylesheet" href="css/progress-dashboard.css">
+    <link rel="stylesheet" href="css/gamification.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/scratchpad.css">
+    <link rel="stylesheet" href="css/timer.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="/assets/logo.jpg" alt="LearningChief Logo" class="logo">
+                    <div class="brand-text">
+                        <h1>LearningChief</h1>
+                        <p class="tagline">Smart Practice for Young Learners</p>
+                    </div>
+                </div>
+                <div id="xpBarContainer"></div>
+                <nav class="header-nav">
+                    <button class="nav-btn profile-indicator" id="profileIndicator" title="Switch Profile"
+                        onclick="ProgressDashboard.showProfileSelectorModal()">
+                        <span class="profile-indicator-avatar" id="profileIndicatorAvatar">🌟</span>
+                        <span class="profile-indicator-name" id="profileIndicatorName">Select Profile</span>
+                        <span class="profile-indicator-arrow">▼</span>
+                    </button>
+                    <button class="nav-btn" id="settingsBtn" title="Settings">
+                        <span class="icon">⚙️</span>
+                    </button>
+                    <button class="nav-btn" id="helpBtn" title="Help">
+                        <span class="icon">❓</span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Configuration Panel -->
+            <section class="config-panel tabbed">
+                <!-- Tab Navigation -->
+                <div class="main-tabs">
+                    <button class="main-tab active" data-tab="generate" onclick="switchMainTab('generate')">
+                        <span class="tab-icon">📝</span>
+                        <span>Create Worksheets</span>
+                    </button>
+                    <button class="main-tab" data-tab="mark" onclick="switchMainTab('mark')">
+                        <span class="tab-icon">📸</span>
+                        <span>Mark My Work</span>
+                    </button>
+                    <button class="main-tab" data-tab="progress" onclick="switchMainTab('progress')">
+                        <span class="tab-icon">📊</span>
+                        <span>My Progress</span>
+                    </button>
+                </div>
+
+                <!-- TAB 1: Generate Worksheets -->
+                <div class="tab-content active" id="generateTab">
+                    <div class="config-header">
+                        <h2>📝 Create Your Worksheet</h2>
+                        <p>Choose your options below to generate professional worksheets</p>
+                    </div>
+
+                    <div class="config-grid">
+                        <!-- Subject Selection -->
+                        <div class="config-card">
+                            <label class="config-label">
+                                <span class="label-icon">📚</span>
+                                Subject
+                            </label>
+                            <div class="subject-buttons">
+                                <button class="subject-btn active" data-subject="math">
+                                    <span class="subject-icon">🔢</span>
+                                    <span>Math</span>
+                                </button>
+                                <button class="subject-btn" data-subject="english">
+                                    <span class="subject-icon">📖</span>
+                                    <span>English</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Year Group -->
+                        <div class="config-card">
+                            <label class="config-label" for="yearSelect">
+                                <span class="label-icon">🎓</span>
+                                Year Group
+                            </label>
+                            <select id="yearSelect" class="config-select">
+                                <option value="1">Year 1 (Ages 5-6)</option>
+                                <option value="2">Year 2 (Ages 6-7)</option>
+                                <option value="3" selected>Year 3 (Ages 7-8)</option>
+                                <option value="4">Year 4 (Ages 8-9)</option>
+                                <option value="5">Year 5 (Ages 9-10)</option>
+                                <option value="6">Year 6 (Ages 10-11)</option>
+                            </select>
+                        </div>
+
+                        <!-- Difficulty -->
+                        <div class="config-card">
+                            <label class="config-label" for="difficultySelect">
+                                <span class="label-icon">⚡</span>
+                                Difficulty
+                            </label>
+                            <select id="difficultySelect" class="config-select">
+                                <option value="normal">Normal</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+
+                        <!-- Number of Worksheets -->
+                        <div class="config-card">
+                            <label class="config-label" for="worksheetCount">
+                                <span class="label-icon">📄</span>
+                                Number of Worksheets
+                            </label>
+                            <div class="number-input-group">
+                                <button class="number-btn minus" id="countMinus">−</button>
+                                <input type="number" id="worksheetCount" value="1" min="1" max="10"
+                                    class="number-input">
+                                <button class="number-btn plus" id="countPlus">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Topic Focus -->
+                        <div class="config-card wide">
+                            <label class="config-label" for="topicInput">
+                                <span class="label-icon">🎯</span>
+                                Topic Focus <span class="optional">(Optional)</span>
+                            </label>
+                            <input type="text" id="topicInput" class="config-input"
+                                placeholder="e.g., Fractions, Multiplication, Spelling...">
+                            <div id="topicFeedback" class="topic-feedback"></div>
+                        </div>
+
+                        <!-- Revision Mode -->
+                        <div class="config-card">
+                            <label class="config-label">
+                                <span class="label-icon">📚</span>
+                                Revision Mode
+                            </label>
+                            <div class="toggle-container">
+                                <label class="toggle">
+                                    <input type="checkbox" id="revisionToggle">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-label">Include prior year topics</span>
+                            </div>
+                        </div>
+
+                        <!-- Questions Per Worksheet -->
+                        <div class="config-card">
+                            <label class="config-label" for="questionCount">
+                                <span class="label-icon">❓</span>
+                                Questions Per Worksheet
+                            </label>
+                            <select id="questionCount" class="config-select">
+                                <option value="5">5 Questions</option>
+                                <option value="10" selected>10 Questions</option>
+                                <option value="15">15 Questions</option>
+                                <option value="20">20 Questions</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Generation Buttons -->
+                    <div class="generation-buttons">
+                        <button class="generate-btn standard" id="generateStandard">
+                            <span class="btn-icon">⚙️</span>
+                            <span class="btn-text">Generate Standard</span>
+                            <span class="btn-subtitle">Pre-built questions</span>
+                        </button>
+                        <button class="generate-btn ai" id="generateAI">
+                            <span class="btn-icon">🤖</span>
+                            <span class="btn-text">Generate with AI</span>
+                            <span class="btn-subtitle">Unique, customized</span>
+                        </button>
+                    </div>
+                </div> <!-- End generateTab -->
+
+                <!-- TAB 2: Mark My Work -->
+                <div class="tab-content" id="markTab">
+                    <div class="mark-work-section" id="markWorkSection">
+                        <div class="mark-work-header">
+                            <h2>📸 Mark My Work</h2>
+                            <p>Upload or photograph completed work for instant marking and coaching</p>
+                        </div>
+
+                        <!-- Year selector for marking -->
+                        <div class="year-selector">
+                            <label>What year group is this work for?</label>
+                            <div class="year-buttons">
+                                <button class="year-btn" data-year="1">Y1</button>
+                                <button class="year-btn" data-year="2">Y2</button>
+                                <button class="year-btn" data-year="3">Y3</button>
+                                <button class="year-btn active" data-year="4">Y4</button>
+                                <button class="year-btn" data-year="5">Y5</button>
+                                <button class="year-btn" data-year="6">Y6</button>
+                            </div>
+                        </div>
+
+                        <!-- Capture Options -->
+                        <div class="capture-options">
+                            <button class="capture-btn capture-btn-camera" onclick="SmartMarker.openCamera()">
+                                <span class="icon">📷</span>
+                                <span>Take a Photo</span>
+                            </button>
+                            <button class="capture-btn capture-btn-upload" onclick="SmartMarker.triggerUpload()">
+                                <span class="icon">📁</span>
+                                <span>Upload Image</span>
+                            </button>
+                            <input type="file" id="workFileInput" accept="image/*,application/pdf"
+                                style="display: none;">
+                        </div>
+
+                        <!-- Image Preview -->
+                        <div class="image-preview-section" id="imagePreviewSection">
+                            <div class="preview-container">
+                                <img id="previewImage" src="" alt="Work preview">
+                                <button class="preview-remove" onclick="SmartMarker.removePreview()">×</button>
+                            </div>
+                            <div class="preview-actions">
+                                <button class="btn-retake" onclick="SmartMarker.removePreview()">Retake /
+                                    Change</button>
+                                <button class="btn-mark" onclick="SmartMarker.submitForMarking()">✓ Mark My
+                                    Work</button>
+                            </div>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div class="marking-loader" id="markingLoader">
+                            <div class="loader-spinner"></div>
+                            <p>Analysing your work...</p>
+                            <p class="loading-tip">This usually takes 10-20 seconds</p>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="marking-results" id="markingResults">
+                            <!-- Score Card -->
+                            <div class="score-card">
+                                <div class="score-display" id="scoreDisplay">0<span class="score-total">/0</span></div>
+                                <div class="score-percentage" id="scorePercentage">0%</div>
+                                <div class="score-praise" id="scorePraise">Great effort!</div>
+                            </div>
+
+                            <!-- Questions -->
+                            <div class="questions-results" id="questionsResults">
+                                <!-- Question results rendered here -->
+                            </div>
+
+                            <!-- Overall Advice -->
+                            <div class="overall-advice">
+                                <h3>💡 Teacher's Advice</h3>
+                                <p id="overallAdviceText"></p>
+                            </div>
+
+                            <!-- Suggested Practice -->
+                            <div class="suggested-practice">
+                                <h3>📚 Practice These Topics</h3>
+                                <div class="practice-topics" id="practiceTopics"></div>
+                                <button class="btn-practice" onclick="SmartMarker.startPractice()">
+                                    Generate Practice Worksheet
+                                </button>
+                            </div>
+
+                            <!-- Mark Another -->
+                            <button class="btn-mark-another" onclick="SmartMarker.markAnother()">
+                                📸 Mark Another Worksheet
+                            </button>
+                        </div>
+                    </div>
+                </div> <!-- End markTab -->
+
+                <!-- TAB 3: My Progress -->
+                <div class="tab-content" id="progressTab">
+                    <div id="progressDashboard">
+                        <!-- Dashboard content rendered by JavaScript -->
+                    </div>
+                </div> <!-- End progressTab -->
+            </section>
+
+            <!-- Worksheet Display Area -->
+            <section class="worksheet-section" id="worksheetSection" style="display: none;">
+                <!-- Toolbar -->
+                <div class="worksheet-toolbar">
+                    <div class="toolbar-left">
+                        <h3 id="worksheetTitle">Generated Worksheets</h3>
+                        <span class="worksheet-count" id="worksheetCountLabel"></span>
+                    </div>
+                    <div class="toolbar-right">
+                        <div class="toolbar-group">
+                            <label class="toolbar-toggle">
+                                <input type="checkbox" id="showSolutions">
+                                <span>Show Solutions</span>
+                            </label>
+                        </div>
+                        <div class="toolbar-group">
+                            <button class="toolbar-btn" id="interactiveBtn" title="Practice on device">
+                                <span>🖥️</span> Interactive Mode
+                            </button>
+                            <button class="toolbar-btn" id="tutorBtn" title="Get help understanding">
+                                <span>👨‍🏫</span> Tutor Mode
+                            </button>
+                        </div>
+                        <div class="toolbar-group">
+                            <button class="toolbar-btn" id="startOverBtn" title="Go back to start">
+                                <span>🔄</span> Start Over
+                            </button>
+                            <button class="toolbar-btn primary" id="printBtn">
+                                <span>🖨️</span> Print
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Worksheets Container -->
+                <div class="worksheets-container" id="worksheetsContainer">
+                    <!-- Worksheets will be rendered here -->
+                </div>
+            </section>
+
+            <!-- Interactive Mode Panel -->
+            <section class="interactive-panel" id="interactivePanel" style="display: none;">
+                <div class="interactive-header">
+                    <button class="back-btn" id="exitInteractive">← Back to Worksheets</button>
+                    <div class="progress-section">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text" id="progressText">0 / 0</span>
+                    </div>
+                    <div class="score-section">
+                        <span class="score-label">Score:</span>
+                        <span class="score-value" id="scoreValue">0</span>
+                        <span class="star-icon">⭐</span>
+                    </div>
+                    <div class="timer-container" id="timerContainer">
+                        <div class="timer-display timer-green" id="timerDisplay">
+                            <svg class="timer-ring-svg" viewBox="0 0 40 40">
+                                <circle class="timer-ring-bg" cx="20" cy="20" r="18" />
+                                <circle class="timer-ring" id="timerRing" cx="20" cy="20" r="18" />
+                            </svg>
+                            <span class="timer-time" id="timerTime">00:00</span>
+                        </div>
+                        <div class="timer-controls">
+                            <button class="timer-ctrl-btn" id="timerPauseBtn" title="Pause"
+                                onclick="WorksheetTimer.togglePause()">⏸️</button>
+                            <button class="timer-ctrl-btn" title="Reset Timer"
+                                onclick="WorksheetTimer.reset()">🔄</button>
+                        </div>
+                        <span class="timer-recommended" id="timerRecommended"></span>
+                    </div>
+                </div>
+                <div class="interactive-content" id="interactiveContent">
+                    <!-- Interactive questions will be rendered here -->
+                </div>
+                <div class="completion-screen" id="completionScreen" style="display: none;">
+                    <div class="completion-content">
+                        <div class="celebration-stars">⭐ 🌟 ⭐</div>
+                        <h2>Well Done!</h2>
+                        <p class="completion-message" id="completionMessage"></p>
+                        <div class="completion-score" id="completionScore"></div>
+                        <div class="completion-actions">
+                            <button class="action-btn" id="retryBtn">Try Again</button>
+                            <button class="action-btn primary" id="newWorksheetBtn">New Worksheet</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tutor Panel (Sidebar) -->
+            <aside class="tutor-panel" id="tutorPanel">
+                <div class="tutor-header">
+                    <h3>👨‍🏫 Tutor Help</h3>
+                    <button class="close-btn" id="closeTutor">×</button>
+                </div>
+                <div class="tutor-content" id="tutorContent">
+                    <div class="tutor-welcome">
+                        <p>Click on any question to get help understanding it!</p>
+                        <div class="tutor-mascot">🌟</div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p class="loading-text" id="loadingText">Generating your worksheets...</p>
+            </div>
+        </div>
+
+        <!-- Scratchpad Overlay -->
+        <div class="scratchpad-overlay" id="scratchpadOverlay">
+            <div class="sp-question-banner" id="scratchpadQuestion">
+                <!-- Question text rendered here -->
+            </div>
+            <div class="sp-canvas-wrap" id="scratchpadCanvasWrap">
+                <div class="sp-spiral-rings" id="spiralRings">
+                    <!-- Rings generated dynamically -->
+                </div>
+                <canvas id="scratchpadCanvas"></canvas>
+            </div>
+            <div class="sp-toolbar">
+                <div class="sp-toolbar-group">
+                    <button class="sp-tool-btn active" id="scratchpadPen" title="Pen">✏️</button>
+                    <button class="sp-tool-btn" id="scratchpadEraser" title="Eraser">🧽</button>
+                </div>
+                <div class="sp-toolbar-group">
+                    <button class="sp-color-btn active" data-color="#1a1a2e" style="background: #1a1a2e"
+                        title="Black"></button>
+                    <button class="sp-color-btn" data-color="#1e40af" style="background: #1e40af" title="Blue"></button>
+                    <button class="sp-color-btn" data-color="#dc2626" style="background: #dc2626" title="Red"></button>
+                    <button class="sp-color-btn" data-color="#059669" style="background: #059669"
+                        title="Green"></button>
+                </div>
+                <div class="sp-toolbar-group">
+                    <input type="range" class="sp-size-slider" id="scratchpadSize" min="1" max="10" value="3"
+                        title="Pen Size">
+                </div>
+                <div class="sp-toolbar-group">
+                    <button class="sp-tool-btn" id="scratchpadUndo" title="Undo (Ctrl+Z)">↩️</button>
+                    <button class="sp-tool-btn" id="scratchpadRedo" title="Redo (Ctrl+Y)">↪️</button>
+                    <button class="sp-tool-btn" id="scratchpadClear" title="Clear All">🗑️</button>
+                </div>
+                <div class="sp-toolbar-group">
+                    <button class="sp-tool-btn close" id="scratchpadClose" title="Close (Esc)">✕</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Modal -->
+        <div class="modal" id="helpModal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>How to Use LearningChief</h3>
+                    <button class="close-btn" id="closeHelp">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="help-section">
+                        <h4>1. Configure Your Worksheet</h4>
+                        <p>Choose the subject (Math or English), year group, difficulty level, and number of worksheets
+                            you want to create.</p>
+                    </div>
+                    <div class="help-section">
+                        <h4>2. Generation Options</h4>
+                        <p><strong>Standard:</strong> Uses pre-built question banks - no internet required!</p>
+                        <p><strong>AI:</strong> Creates unique, customized questions using Gemini AI.</p>
+                    </div>
+                    <div class="help-section">
+                        <h4>3. Revision Mode</h4>
+                        <p>Turn this on to mix in topics from previous year groups - great for reinforcing learning!</p>
+                    </div>
+                    <div class="help-section">
+                        <h4>4. Interactive Mode</h4>
+                        <p>Let students complete worksheets on-screen with instant feedback and scoring.</p>
+                    </div>
+                    <div class="help-section">
+                        <h4>5. Tutor Mode</h4>
+                        <p>Get step-by-step explanations for any question - like having a personal tutor!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div class="privacy-modal" id="privacyModal">
+        <div class="privacy-modal-content">
+            <div class="icon">🔒</div>
+            <h3>Privacy Notice</h3>
+            <p>To mark your work, we'll send an image to Google's AI service (Gemini). The image is processed securely
+                and not permanently stored. By continuing, you consent to this processing.</p>
+            <div class="privacy-buttons">
+                <button class="btn-decline">Cancel</button>
+                <button class="btn-accept">I Understand, Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Selector Modal -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-modal-panel">
+            <div class="profile-modal-header">
+                <h3 id="profileModalTitle">👋 Who's practicing today?</h3>
+                <button class="close-btn" onclick="ProgressDashboard.closeProfileModal()">×</button>
+            </div>
+            <div class="profile-modal-body" id="profileModalBody">
+                <!-- Content rendered by progress-dashboard.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal">
+        <div class="settings-panel">
+            <div class="settings-header">
+                <h3>⚙️ Settings</h3>
+                <button class="close-btn" id="closeSettings">×</button>
+            </div>
+            <div class="settings-body" id="settingsBody">
+                <!-- Content rendered by settings.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Confirm Dialog -->
+    <div class="settings-confirm-overlay" id="settingsConfirmOverlay">
+        <div class="settings-confirm-dialog">
+            <div class="confirm-icon" id="confirmIcon">⚠️</div>
+            <h4 id="confirmTitle">Are you sure?</h4>
+            <p id="confirmMessage">This action cannot be undone.</p>
+            <div class="confirm-buttons">
+                <button class="confirm-btn cancel" id="confirmCancelBtn">Cancel</button>
+                <button class="confirm-btn danger" id="confirmActionBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Camera Overlay -->
+    <div class="camera-overlay" id="cameraOverlay">
+        <div class="camera-header">
+            <h3>📷 Take a Photo</h3>
+            <button class="camera-close" onclick="SmartMarker.closeCamera()">×</button>
+        </div>
+        <div class="camera-viewfinder">
+            <video id="cameraVideo" autoplay playsinline></video>
+        </div>
+        <div class="camera-controls">
+            <button class="camera-capture-btn" onclick="SmartMarker.capturePhoto()"></button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Data Pools -->
+    <script src="js/generators/data/names.js"></script>
+    <script src="js/generators/data/contexts.js"></script>
+    <script src="js/generators/data/words-english.js"></script>
+    <script src="js/generators/data/sentences.js"></script>
+    <script src="js/generators/data/math-contexts.js"></script>
+    <!-- Generators -->
+    <script src="js/generators/math.js"></script>
+    <script src="js/generators/english.js"></script>
+    <script src="js/worksheet.js"></script>
+    <script src="js/interactive.js"></script>
+    <script src="js/tutor.js"></script>
+    <script src="js/progress-store.js"></script>
+    <script src="js/gamification.js"></script>
+    <script src="js/gamification-ui.js"></script>
+    <script src="js/progress-dashboard.js"></script>
+    <script src="js/mistake-analyzer.js"></script>
+    <script src="js/spaced-repetition.js"></script>
+    <script src="js/reports.js"></script>
+    <script src="js/smart-marker.js"></script>
+    <script src="js/scratchpad.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

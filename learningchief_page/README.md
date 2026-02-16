@@ -23,3 +23,21 @@ Then open:
 ## Notes
 - This is a static mirror, not the WordPress backend.
 - Dynamic functions (logins, checkout, forms, live APIs) won’t function fully offline.
+
+
+## Full platform app (imported)
+
+A full LearningChief application (frontend + Node backend) has been imported into:
+
+- `learningchief-platform/`
+
+Run it with:
+
+```bash
+cd /home/hugo/.openclaw/workspace/learningchief_page/learningchief-platform
+cp .env.example .env
+npm install
+npm run start
+```
+
+Then open `http://localhost:3080`.

@@ -1,0 +1,1066 @@
+/* ===================================
+   LearningChief - Worksheet Styles
+   Professional workbook appearance
+   =================================== */
+
+/* ===================================
+   Worksheet Page
+   =================================== */
+
+.worksheet-page {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 40px;
+    margin-bottom: var(--spacing-xl);
+    border: 1px solid var(--gray-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.worksheet-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--primary-yellow) 0%, var(--primary-blue) 100%);
+}
+
+/* Worksheet Header - LearningChief Style */
+.worksheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #E6A23C;
+}
+
+.worksheet-branding {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.worksheet-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+}
+
+.worksheet-brand-text {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #E6A23C;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.worksheet-info {
+    text-align: right;
+}
+
+.header-name-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-name-field label {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 0.9rem;
+}
+
+.header-name-field .line {
+    width: 150px;
+    border-bottom: 1.5px solid var(--dark);
+}
+
+/* Worksheet Title Section */
+.worksheet-title-section {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.worksheet-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin: 0 0 6px 0;
+}
+
+.worksheet-subtitle {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--dark-light);
+    margin: 0;
+}
+
+.worksheet-subject {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.worksheet-meta {
+    font-size: 0.85rem;
+    color: var(--dark-light);
+    margin-top: 4px;
+}
+
+/* Student Info Section */
+.student-info {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 15px 20px;
+    background: var(--off-white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-light);
+}
+
+.student-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.student-field label {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 0.9rem;
+}
+
+.student-field .line {
+    width: 150px;
+    border-bottom: 2px solid var(--dark);
+}
+
+.student-field .date-line {
+    width: 100px;
+}
+
+/* ===================================
+   Question Styles
+   =================================== */
+
+.questions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.question-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--gray-light);
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.question-item:hover {
+    border-color: var(--primary-blue-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.question-item.revision {
+    border-color: var(--warning-orange);
+    background: linear-gradient(135deg, var(--white) 0%, rgba(255, 169, 77, 0.05) 100%);
+}
+
+.question-item.revision::after {
+    content: '📚 Revision';
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    background: var(--warning-orange);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.question-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-yellow-dark) 100%);
+    border-radius: var(--radius-full);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--dark);
+    flex-shrink: 0;
+}
+
+.question-content {
+    flex: 1;
+}
+
+.question-text {
+    font-size: 1.05rem;
+    color: var(--dark);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.question-text strong {
+    color: var(--dark);
+}
+
+/* Answer Boxes */
+.answer-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.answer-label {
+    font-weight: 600;
+    color: var(--dark-light);
+    font-size: 0.9rem;
+}
+
+.answer-line {
+    display: inline-block;
+    width: 120px;
+    min-height: 20px;
+    height: 24px;
+    border: none;
+    border-bottom: 2px solid #333;
+    background: transparent;
+    vertical-align: bottom;
+}
+
+.answer-line.wide {
+    width: 120px;
+}
+
+.answer-line.extra-wide {
+    width: 120px;
+}
+
+/* Inline blanks within sentences */
+.inline-blank {
+    display: inline-block;
+    width: 120px;
+    min-width: 80px;
+    border-bottom: 2px solid var(--dark);
+    margin: 0 4px;
+    vertical-align: bottom;
+}
+
+/* Answer Areas for longer responses */
+.answer-area {
+    width: 100%;
+    min-height: 80px;
+    border: 2px solid var(--gray-light);
+    border-radius: var(--radius-md);
+    margin-top: 12px;
+    position: relative;
+}
+
+.answer-area.lined {
+    background: repeating-linear-gradient(transparent,
+            transparent 24px,
+            var(--gray-light) 24px,
+            var(--gray-light) 25px);
+    min-height: 100px;
+}
+
+/* Multiple Choice */
+.multiple-choice {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.choice-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: var(--off-white);
+    border: 2px solid var(--gray-light);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.choice-option:hover {
+    border-color: var(--primary-blue);
+    background: var(--primary-blue-light);
+}
+
+.choice-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--white);
+    border: 2px solid var(--gray);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--dark);
+}
+
+.choice-text {
+    color: var(--dark);
+}
+
+/* Visual Elements */
+.question-visual {
+    margin: 16px 0;
+    padding: 16px;
+    background: var(--off-white);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.visual-placeholder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    background: var(--white);
+    border: 2px dashed var(--gray);
+    border-radius: var(--radius-md);
+    color: var(--dark-light);
+    font-style: italic;
+}
+
+/* ===================================
+   Writing Boxes (Fix the Sentence style)
+   =================================== */
+.writing-box {
+    border: 1.5px solid var(--gray);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    margin: 8px 0;
+    min-height: 80px;
+    background: repeating-linear-gradient(transparent,
+            transparent 24px,
+            var(--gray-light) 24px,
+            var(--gray-light) 25px);
+}
+
+.writing-box .question-text {
+    margin-bottom: 40px;
+}
+
+/* ===================================
+   Word Chips / Pills (for sorting)
+   =================================== */
+.word-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+    justify-content: center;
+}
+
+.word-chip {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--white);
+    border: 1.5px solid var(--gray);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+/* ===================================
+   Sorting Columns (Nouns/Verbs style)
+   =================================== */
+.sorting-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.sorting-column {
+    border: 1.5px solid var(--gray);
+    border-radius: var(--radius-md);
+    min-height: 150px;
+    overflow: hidden;
+}
+
+.sorting-column-header {
+    padding: 10px 16px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.sorting-column-header.blue {
+    background: #6ECFEA;
+}
+
+.sorting-column-header.red {
+    background: #FF6B6B;
+}
+
+.sorting-column-header.orange {
+    background: #E6A23C;
+}
+
+.sorting-column-body {
+    padding: 12px;
+    min-height: 100px;
+}
+
+/* ===================================
+   Tables with Colored Headers
+   =================================== */
+.worksheet-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+.worksheet-table th {
+    background: #E6A23C;
+    color: white;
+    padding: 10px 16px;
+    font-weight: 700;
+    text-align: center;
+    border: 1px solid #D4921A;
+}
+
+.worksheet-table td {
+    padding: 12px 16px;
+    border: 1.5px solid var(--gray);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.worksheet-table td.blank {
+    border-bottom: 2px solid var(--dark);
+    border-top: none;
+    border-left: 1.5px solid var(--gray);
+    border-right: 1.5px solid var(--gray);
+}
+
+/* ===================================
+   Long Multiplication / Division Boxes
+   =================================== */
+.math-operation-box {
+    border: 1.5px solid var(--gray);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    display: inline-block;
+    min-width: 120px;
+    text-align: right;
+}
+
+.math-operation-box .operand {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.math-operation-box .operator {
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+.math-operation-box .line {
+    border-top: 2px solid var(--dark);
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+/* Number Lines */
+.number-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin: 16px 0;
+    border-bottom: 3px solid var(--dark);
+    position: relative;
+}
+
+.number-line::before,
+.number-line::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+
+.number-line::before {
+    left: -6px;
+    border-top: 8px solid var(--dark);
+}
+
+.number-line::after {
+    right: -6px;
+    border-top: 8px solid var(--dark);
+}
+
+.number-line-mark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.number-line-mark::before {
+    content: '';
+    width: 2px;
+    height: 10px;
+    background: var(--dark);
+    margin-bottom: 4px;
+}
+
+.number-line-value {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* Shapes for Geometry */
+.shape-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+}
+
+.shape-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    background: var(--off-white);
+    border-radius: var(--radius-md);
+}
+
+.shape-svg {
+    width: 80px;
+    height: 80px;
+}
+
+.shape-label {
+    font-size: 0.85rem;
+    color: var(--dark-light);
+}
+
+/* Reading Passage */
+.reading-passage {
+    padding: 20px;
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--primary-blue-light) 100%);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-blue);
+    margin-bottom: 16px;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.passage-title {
+    font-weight: 700;
+    font-style: normal;
+    color: var(--dark);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* ===================================
+   Solutions Styles
+   =================================== */
+
+.solution-container {
+    margin-top: 16px;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--success-green-light) 0%, rgba(107, 203, 119, 0.1) 100%);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--success-green);
+    display: none;
+}
+
+.show-solutions .solution-container {
+    display: block;
+}
+
+.solution-label {
+    font-weight: 700;
+    color: var(--success-green);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.solution-text {
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.solution-explanation {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--success-green);
+    color: var(--dark-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ===================================
+   Worksheet Footer
+   =================================== */
+
+.worksheet-footer {
+    margin-top: 30px;
+    padding: 12px 0;
+    border-top: 1px solid var(--gray-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    color: var(--dark-light);
+    font-weight: 400;
+}
+
+.page-number {
+    font-size: 0.85rem;
+    color: var(--dark-light);
+    font-weight: 600;
+}
+
+/* ===================================
+   Interactive Question Styles
+   =================================== */
+
+.interactive-question {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+    border: 3px solid var(--gray-light);
+    transition: var(--transition-fast);
+}
+
+.interactive-question.current {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 20px rgba(110, 207, 234, 0.3);
+}
+
+.interactive-question.correct {
+    border-color: var(--success-green);
+    background: linear-gradient(135deg, var(--white) 0%, var(--success-green-light) 100%);
+}
+
+.interactive-question.incorrect {
+    border-color: var(--error-red);
+    background: linear-gradient(135deg, var(--white) 0%, var(--error-red-light) 100%);
+}
+
+.interactive-input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 3px solid var(--gray-light);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-top: 16px;
+    transition: var(--transition-fast);
+}
+
+.interactive-input:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(110, 207, 234, 0.2);
+}
+
+.interactive-input.correct {
+    border-color: var(--success-green);
+    background: var(--success-green-light);
+}
+
+.interactive-input.incorrect {
+    border-color: var(--error-red);
+    background: var(--error-red-light);
+}
+
+.submit-answer-btn {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+    padding: 14px;
+    border: none;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--warning-orange) 100%);
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.submit-answer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.submit-answer-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.feedback-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+}
+
+.feedback-message.correct {
+    background: var(--success-green-light);
+    color: var(--success-green);
+}
+
+.feedback-message.incorrect {
+    background: var(--error-red-light);
+    color: var(--error-red);
+}
+
+.feedback-icon {
+    font-size: 1.4rem;
+}
+
+/* ===================================
+   Tutor Explanation Styles
+   =================================== */
+
+.tutor-explanation {
+    padding: var(--spacing-lg);
+}
+
+.tutor-question {
+    padding: var(--spacing-md);
+    background: var(--primary-blue-light);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.tutor-greeting {
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tutor-steps {
+    margin-bottom: var(--spacing-lg);
+}
+
+.tutor-steps h4 {
+    color: var(--dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tutor-step {
+    display: flex;
+    gap: 12px;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--off-white);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--primary-yellow);
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--primary-yellow);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.step-text {
+    flex: 1;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.tutor-tip {
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, var(--primary-yellow-light) 0%, var(--white) 100%);
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--primary-yellow);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tutor-tip h4 {
+    color: var(--dark);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tutor-tip p {
+    color: var(--dark-light);
+}
+
+.tutor-encouragement {
+    padding: var(--spacing-md);
+    background: var(--success-green-light);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 600;
+    color: var(--success-green);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tutor-practice {
+    padding: var(--spacing-md);
+    background: var(--off-white);
+    border-radius: var(--radius-md);
+    color: var(--dark-light);
+}
+
+.tutor-practice h4 {
+    color: var(--dark);
+    margin-bottom: 8px;
+}
+
+.tutor-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-2xl);
+    color: var(--dark-light);
+}
+
+.tutor-loading .loading-spinner {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Enhanced Tutor Mode Visual Styles */
+.tutor-visual {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8f5ff 100%);
+    border-radius: var(--radius-lg);
+    border: 2px solid #90CAF9;
+}
+
+.tutor-visual h4 {
+    color: var(--dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.visual-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.tutor-svg {
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tutor-svg-small {
+    max-height: 120px;
+    max-width: 120px;
+}
+
+.visual-caption {
+    font-size: 0.9rem;
+    color: var(--dark-light);
+    text-align: center;
+    margin: 8px 0 0 0;
+    font-style: italic;
+}
+
+/* Interactive Practice Styles */
+.tutor-interactive {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, #fff8e1 0%, #fffde7 100%);
+    border-radius: var(--radius-lg);
+    border: 2px solid #FFB300;
+}
+
+.tutor-interactive h4 {
+    color: var(--dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.interactive-practice {
+    text-align: center;
+}
+
+.interactive-practice p {
+    color: var(--dark-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.practice-question {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: white;
+    border-radius: var(--radius-md);
+    display: inline-block;
+}
+
+.practice-input-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-md);
+}
+
+.practice-input {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: var(--radius-md);
+    width: 120px;
+    text-align: center;
+    font-weight: 600;
+    transition: border-color 0.3s ease;
+}
+
+.practice-input:focus {
+    outline: none;
+    border-color: var(--primary-yellow);
+}
+
+.practice-check-btn {
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, #FFC107 100%);
+    color: var(--dark);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.practice-check-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+}
+
+.practice-feedback {
+    min-height: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.feedback-correct {
+    color: #2E7D32;
+    animation: pulse 0.5s ease-out;
+}
+
+.feedback-incorrect {
+    color: #E65100;
+}
+
+.feedback-hint {
+    color: #1565C0;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Step highlighting */
+.tutor-step {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tutor-step:hover {
+    background: #fff8e1;
+    border-left-color: #FF9800;
+}
+
+.tutor-step.step-highlighted {
+    background: linear-gradient(90deg, #e8f5e9 0%, #f1f8e9 100%);
+    border-left-color: #4CAF50;
+    transform: translateX(5px);
+}
+
+.tutor-step.step-highlighted .step-number {
+    background: #4CAF50;
+    color: white;
+}

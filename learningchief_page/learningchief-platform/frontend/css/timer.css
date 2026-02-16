@@ -1,0 +1,223 @@
+/* ===================================
+   Worksheet Timer
+   =================================== */
+
+.timer-container {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+}
+
+/* Timer display chip */
+.timer-display {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Circular progress ring */
+.timer-ring-svg {
+    width: 40px;
+    height: 40px;
+    transform: rotate(-90deg);
+    flex-shrink: 0;
+}
+
+.timer-ring-bg {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.1);
+    stroke-width: 3;
+}
+
+.timer-ring {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear, stroke 0.5s ease;
+    stroke-dasharray: 113.1;
+    /* 2 * PI * 18 */
+    stroke-dashoffset: 0;
+}
+
+/* Urgency states */
+.timer-display.timer-green {
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.timer-display.timer-green .timer-ring {
+    stroke: #10b981;
+}
+
+.timer-display.timer-amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #d97706;
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.timer-display.timer-amber .timer-ring {
+    stroke: #f59e0b;
+}
+
+.timer-display.timer-red {
+    background: rgba(239, 68, 68, 0.12);
+    color: #dc2626;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.timer-display.timer-red .timer-ring {
+    stroke: #ef4444;
+}
+
+/* Time-up pulsing */
+.timer-display.time-up {
+    animation: timerPulse 1s ease-in-out infinite;
+    background: rgba(239, 68, 68, 0.2);
+    color: #dc2626;
+    border-color: #ef4444;
+}
+
+@keyframes timerPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.03);
+    }
+}
+
+.timer-time {
+    font-variant-numeric: tabular-nums;
+    min-width: 45px;
+    text-align: center;
+}
+
+/* Timer controls */
+.timer-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.timer-ctrl-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.timer-ctrl-btn:hover {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+/* Recommended duration label */
+.timer-recommended {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    white-space: nowrap;
+}
+
+/* Time-up notification banner */
+.timer-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-bottom: 2px solid #f59e0b;
+    font-family: var(--font-primary);
+    animation: bannerSlideIn 0.3s ease;
+}
+
+@keyframes bannerSlideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.timer-banner.fade-out {
+    animation: bannerFadeOut 0.3s ease forwards;
+}
+
+@keyframes bannerFadeOut {
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.timer-banner-icon {
+    font-size: 1.3rem;
+}
+
+.timer-banner-text {
+    flex: 1;
+    font-weight: 600;
+    color: #92400e;
+    font-size: 0.9rem;
+}
+
+.timer-banner-close {
+    background: none;
+    border: none;
+    color: #92400e;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: color 0.2s;
+}
+
+.timer-banner-close:hover {
+    color: #451a03;
+}
+
+/* ===================================
+   Mobile Responsive
+   =================================== */
+
+@media (max-width: 480px) {
+    .timer-display {
+        padding: 4px 8px;
+        font-size: 0.85rem;
+    }
+
+    .timer-ring-svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .timer-ctrl-btn {
+        width: 24px;
+        height: 24px;
+    }
+
+    .timer-recommended {
+        display: none;
+    }
+}
