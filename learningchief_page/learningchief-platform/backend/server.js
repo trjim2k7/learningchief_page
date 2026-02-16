@@ -12,12 +12,17 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// Serve static files from frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
+// Paths
+const appFrontendDir = path.join(__dirname, '../frontend');
+const appAssetsDir = path.join(__dirname, '../assets');
+const mirrorSiteDir = path.join(__dirname, '../../learningchief.com');
 
-// Serve assets
-app.use('/assets', express.static(path.join(__dirname, '../assets')));
+// Serve full interactive app under /app
+app.use('/app', express.static(appFrontendDir));
+app.use('/app-assets', express.static(appAssetsDir));
 
+// Serve mirrored branded site at /
+app.use(express.static(mirrorSiteDir));
 // API routes
 app.use('/api', apiRoutes);
 
@@ -35,14 +40,24 @@ app.use('/api', (err, req, res, next) => {
     });
 });
 
-// Serve index.html for root
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+// App entry
+app.get('/app', (req, res) => {
+    res.sendFile(path.join(appFrontendDir, 'index.html'));
 });
 
-// Catch-all for SPA - serve index.html for unmatched routes
+// Root entry -> branded mirrored site
+app.get('/', (req, res) => {
+    res.sendFile(path.join(mirrorSiteDir, 'index.html'));
+});
+
+// Catch-all: try mirror first, fallback to mirror index
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+    const requested = path.join(mirrorSiteDir, req.path);
+    res.sendFile(requested, (err) => {
+        if (err) {
+            res.sendFile(path.join(mirrorSiteDir, 'index.html'));
+        }
+    });
 });
 
 // General error handler
