@@ -1,0 +1,13 @@
+
+.lp-wrap{max-width:1100px;margin:22px auto;padding:0 16px;font-family:Inter,system-ui,Arial,sans-serif}
+.lp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.lp-card{background:#fff;border:1px solid #dbe7ff;border-radius:14px;padding:14px;box-shadow:0 6px 20px rgba(37,99,235,.08)}
+.lp-card h3{margin:0 0 4px;font-size:18px}.lp-price{font-size:24px;font-weight:800;margin:4px 0 8px}
+.lp-card p{margin:0;color:#4b5563;line-height:1.45;font-size:14px}
+.lp-feats{margin:10px 0 0;padding-left:18px;color:#374151;font-size:14px}
+.lp-feats li{margin:4px 0}
+.lp-btn{display:inline-block;margin-top:10px;padding:9px 12px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px}
+.lp-btn.primary{background:#2563eb;color:#fff}.lp-btn.soft{background:#eaf1ff;color:#1d4ed8}
+.lp-note{background:#f8fbff;border:1px solid #dbe7ff;border-radius:12px;padding:10px 12px;margin-top:10px;color:#334155}
+@media (max-width:1050px){.lp-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.lp-grid{grid-template-columns:1fr}}
