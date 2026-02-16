@@ -1,0 +1,8 @@
+
+.clean-wrap{max-width:1100px;margin:24px auto;padding:0 16px;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.clean-hero{background:linear-gradient(180deg,#eef4ff,#fff);border:1px solid #dbe7ff;border-radius:16px;padding:22px}
+.clean-hero h2{margin:0 0 8px;font-size:28px}
+.clean-hero p{margin:0;color:#4b5563;line-height:1.6}
+.clean-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.clean-btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+.clean-btn.primary{background:#2563eb;color:#fff}.clean-btn.soft{background:#eaf1ff;color:#1d4ed8}
